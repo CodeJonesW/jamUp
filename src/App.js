@@ -3,9 +3,12 @@ import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './global';
 import { theme } from './theme';
+import PrimarySearchAppBar from './components/PrimaryBar'
+import Jam from './components/Jam.js'
+
 
 function App() {
-  const [listOfJams, setJams] = useState(null);
+  const [jamData, setJams] = useState(null);
 
   useEffect(() => {
     fetch('http://localhost:3000/jams')
@@ -22,7 +25,10 @@ function App() {
     <>
       <GlobalStyles />
       <div>
-        <h1>Hello. This is burger menu tutorial</h1>
+      <PrimarySearchAppBar></PrimarySearchAppBar>
+      {jamData ? jamData.allJams.map(jam => {
+        return <Jam title={jam.title} genre={jam.genre} info={jam.info}/>
+      }) : null}
       </div>
     </>
   </ThemeProvider>
