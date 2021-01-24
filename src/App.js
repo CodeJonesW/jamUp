@@ -45,7 +45,7 @@ function App() {
       <GlobalStyles />
       
         <PrimarySearchAppBar handleJamSearch={handleJamSearch}></PrimarySearchAppBar>
-        <Grid container>
+        <Grid container fluid="true">
           <Grid item xs={2}>
             <SideMenu />
           </Grid>

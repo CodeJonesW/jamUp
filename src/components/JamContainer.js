@@ -7,13 +7,13 @@ const JamContainer = (props) => {
 
 if(props.filteredJams){
     return (
-        <Grid container fluid>
+        <Grid container fluid="true">
            
                 <div>
                     {props.filteredJams.map((jam, index) => {
                         return (
-                            <Grid item xs={12} sm={4}>
-                                <Jam key={index} title={jam.title} genre={jam.genre} info={jam.info}/>
+                            <Grid key={index} item xs={12} sm={6}>
+                                <Jam  title={jam.title} genre={jam.genre} info={jam.info} id={jam.id}/>
                             </Grid>
                         )
                     })}
@@ -26,12 +26,12 @@ if(props.filteredJams){
     )
 } else {
     return (
-        <Grid container fluid>
+        <Grid container fluid="true">
            
             {props.jamData ? props.jamData.map((jam, index) => {
                 return(
-                    <Grid item xs={12} sm={4}>
-                        <Jam key={index} title={jam.title} genre={jam.genre} info={jam.info}/>
+                    <Grid key={index} item xs={12} sm={6}>
+                        <Jam title={jam.title} genre={jam.genre} info={jam.info} id={jam.id}/>
                     </Grid>
                 )
             }) : null}
