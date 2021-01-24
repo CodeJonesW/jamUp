@@ -8,8 +8,6 @@ const JamContainer = (props) => {
 if(props.filteredJams){
     return (
         <Grid container fluid="true">
-           
-                <div>
                     {props.filteredJams.map((jam, index) => {
                         return (
                             <Grid key={index} item xs={12} sm={6}>
@@ -17,12 +15,7 @@ if(props.filteredJams){
                             </Grid>
                         )
                     })}
-                </div>
-           
         </Grid>
-            
-            
-   
     )
 } else {
     return (

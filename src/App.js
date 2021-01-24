@@ -21,7 +21,7 @@ function App() {
     })
 
    
-  });
+  }, []);
 
   useEffect(() => {
     if(jamData){
@@ -39,6 +39,8 @@ function App() {
     setSearchTerm(e.target.value);
   }
 
+
+  
   return (
     <ThemeProvider theme={theme}>
     <>

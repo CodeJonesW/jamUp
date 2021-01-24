@@ -182,7 +182,7 @@ export default function PrimarySearchAppBar(props) {
             </div>
             <InputBase
               onChange={(e) => props.handleJamSearch(e)}
-              placeholder="Search…"
+              placeholder="Search Jams..."
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
