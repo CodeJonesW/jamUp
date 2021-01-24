@@ -1,25 +1,43 @@
 import React from 'react'
 import Jam from './Jam.js'
-
+import Grid from '@material-ui/core/Grid';
 
 
 const JamContainer = (props) => {
 
 if(props.filteredJams){
     return (
-        <div>
-            {props.filteredJams.map(jam => {
-                return <Jam title={jam.title} genre={jam.genre} info={jam.info}/>
-            })}
-        </div>
+        <Grid container fluid>
+           
+                <div>
+                    {props.filteredJams.map((jam, index) => {
+                        return (
+                            <Grid item xs={12} sm={4}>
+                                <Jam key={index} title={jam.title} genre={jam.genre} info={jam.info}/>
+                            </Grid>
+                        )
+                    })}
+                </div>
+           
+        </Grid>
+            
+            
+   
     )
 } else {
     return (
-        <div>
-            {props.jamData ? props.jamData.map(jam => {
-                return <Jam title={jam.title} genre={jam.genre} info={jam.info}/>
+        <Grid container fluid>
+           
+            {props.jamData ? props.jamData.map((jam, index) => {
+                return(
+                    <Grid item xs={12} sm={4}>
+                        <Jam key={index} title={jam.title} genre={jam.genre} info={jam.info}/>
+                    </Grid>
+                )
             }) : null}
-        </div>
+           
+           
+        </Grid>
     )
 }
    

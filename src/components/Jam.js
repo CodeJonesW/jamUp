@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 275,
+    minWidth: 200,
     margin: '10px'
   },
   bullet: {
@@ -26,7 +26,7 @@ const useStyles = makeStyles({
 
 export default function Jam(props) {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
+ 
 
   return (
     <Card className={classes.root} variant="outlined">

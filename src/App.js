@@ -5,6 +5,8 @@ import { GlobalStyles } from './global';
 import { theme } from './theme';
 import PrimarySearchAppBar from './components/PrimaryBar'
 import JamContainer from './components/JamContainer'
+import SideMenu from './components/SideMenu'
+import Grid from '@material-ui/core/Grid';
 
 function App() {
   const [jamData, setJams] = useState("");
@@ -33,8 +35,6 @@ function App() {
 
 
 
-
-
   const handleJamSearch = (e) => {
     setSearchTerm(e.target.value);
   }
@@ -43,10 +43,13 @@ function App() {
     <ThemeProvider theme={theme}>
     <>
       <GlobalStyles />
-      <div>
+      
         <PrimarySearchAppBar handleJamSearch={handleJamSearch}></PrimarySearchAppBar>
+        {/* <SideMenu /> */}
+  
+        
         <JamContainer jamData={jamData} filteredJams={filteredJams}/>
-      </div>
+     
     </>
   </ThemeProvider>
   );
