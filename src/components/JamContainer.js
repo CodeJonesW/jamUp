@@ -16,9 +16,9 @@ if(props.filteredJams){
 } else {
     return (
         <div>
-            {props.jamData.map(jam => {
+            {props.jamData ? props.jamData.map(jam => {
                 return <Jam title={jam.title} genre={jam.genre} info={jam.info}/>
-            })}
+            }) : null}
         </div>
     )
 }
