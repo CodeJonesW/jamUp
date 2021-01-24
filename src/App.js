@@ -45,10 +45,16 @@ function App() {
       <GlobalStyles />
       
         <PrimarySearchAppBar handleJamSearch={handleJamSearch}></PrimarySearchAppBar>
-        {/* <SideMenu /> */}
-  
+        <Grid container>
+          <Grid item xs={2}>
+            <SideMenu />
+          </Grid>
+
+          <Grid item xs={10}>
+            <JamContainer jamData={jamData} filteredJams={filteredJams}/>
+          </Grid>
+        </Grid>
         
-        <JamContainer jamData={jamData} filteredJams={filteredJams}/>
      
     </>
   </ThemeProvider>
