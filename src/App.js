@@ -9,30 +9,7 @@ import SignIn from './components/SignIn'
 
 
 function App() {
-  const [token, setToken] = useState();
 
-  const handleLogin = (e) => {
-    fetch('http://localhost:3000/login')
-    .then(res => res.json())
-    .then(data => {
-      console.log(data)
-      setToken(data.token)
-    })
-  }
-
-
-  // if(!token) {
-  //   return (
-  //     <div>
-  //     <ThemeProvider theme={theme}>
-  //       <GlobalStyles/>
-  //       <SignIn handleLogin={handleLogin} />
-  //     </ThemeProvider>
-      
-  //     </div>
-
-  //   );
-  // }
 
 
   return (
@@ -41,14 +18,8 @@ function App() {
       <div className="wrapper">
         <BrowserRouter>
           <Switch>
-          <Route exact path="/">
-          {token ? <Redirect to="/dashboard" /> : <SignIn handleLogin={handleLogin}/>}  
-            </Route>
-            <Route path="/dashboard">
+            <Route exact path="/">
               <Dashboard />
-            </Route>
-            <Route path="/profile">
-              {/* <Login /> */}
             </Route>
           </Switch>
         </BrowserRouter>
