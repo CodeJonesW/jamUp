@@ -10,15 +10,15 @@ const SideMenu = (props) => {
 
     return (
         <Grid style={{width: "100%", height: "100%",}}>
-            {/* <Grid item>
-                <Button variant="contained">Create a Jam</Button>
+            <Grid item>
+                <Button variant="contained">🔥</Button>
             </Grid>
             <Grid item>
-                <Button variant="contained">Show Favorite Jams</Button>
+                <Button variant="contained">👌</Button>
             </Grid>
             <Grid item>
-                <Button variant="contained"> Show Past Jams</Button>
-            </Grid> */}
+                <Button variant="contained"> ☂️</Button>
+            </Grid>
         </Grid>
     )
    

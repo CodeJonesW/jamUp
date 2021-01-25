@@ -5,7 +5,6 @@ import { GlobalStyles } from './global';
 import { theme } from './theme';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Dashboard from './components/Dashboard'
-import SignIn from './components/SignIn'
 
 
 function App() {
@@ -21,6 +20,7 @@ function App() {
             <Route exact path="/">
               <Dashboard />
             </Route>
+            
           </Switch>
         </BrowserRouter>
       </div>
