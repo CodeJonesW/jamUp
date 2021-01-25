@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './global';
 import { theme } from './theme';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Dashboard from './components/Dashboard'
 import SignIn from './components/SignIn'
 
@@ -21,18 +21,18 @@ function App() {
   }
 
 
-  if(!token) {
-    return (
-      <div>
-      <ThemeProvider theme={theme}>
-        <GlobalStyles/>
-        <SignIn handleLogin={handleLogin} />
-      </ThemeProvider>
+  // if(!token) {
+  //   return (
+  //     <div>
+  //     <ThemeProvider theme={theme}>
+  //       <GlobalStyles/>
+  //       <SignIn handleLogin={handleLogin} />
+  //     </ThemeProvider>
       
-      </div>
+  //     </div>
 
-    );
-  }
+  //   );
+  // }
 
 
   return (
@@ -41,6 +41,9 @@ function App() {
       <div className="wrapper">
         <BrowserRouter>
           <Switch>
+          <Route exact path="/">
+          {token ? <Redirect to="/dashboard" /> : <SignIn handleLogin={handleLogin}/>}  
+            </Route>
             <Route path="/dashboard">
               <Dashboard />
             </Route>
