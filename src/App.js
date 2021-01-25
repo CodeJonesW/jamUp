@@ -3,63 +3,54 @@ import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './global';
 import { theme } from './theme';
-import PrimarySearchAppBar from './components/PrimaryBar'
-import JamContainer from './components/JamContainer'
-import SideMenu from './components/SideMenu'
-import Grid from '@material-ui/core/Grid';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Dashboard from './components/Dashboard'
+import SignIn from './components/SignIn'
+
 
 function App() {
-  const [jamData, setJams] = useState("");
-  const [searchTerm, setSearchTerm] = React.useState("");
-  const [filteredJams, setFilteredJams] = React.useState("");
+  const [token, setToken] = useState();
 
-  useEffect(() => {
-    fetch('http://localhost:3000/jams')
+  const handleLogin = (e) => {
+    fetch('http://localhost:3000/login')
     .then(res => res.json())
     .then(data => {
-      setJams(data.allJams)
+      console.log(data)
+      setToken(data.token)
     })
-
-   
-  }, []);
-
-  useEffect(() => {
-    if(jamData){
-      const results = jamData.filter(jam =>
-        jam.title.toLowerCase().includes(searchTerm)
-      );
-      setFilteredJams(results);
-    }
-
-  }, [searchTerm]);
-
-
-
-  const handleJamSearch = (e) => {
-    setSearchTerm(e.target.value);
   }
 
 
-  
+  if(!token) {
+    return (
+      <div>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles/>
+        <SignIn handleLogin={handleLogin} />
+      </ThemeProvider>
+      
+      </div>
+
+    );
+  }
+
+
   return (
     <ThemeProvider theme={theme}>
-    <>
-      <GlobalStyles />
-      
-        <PrimarySearchAppBar handleJamSearch={handleJamSearch}></PrimarySearchAppBar>
-        <Grid container fluid="true">
-          <Grid item xs={2}>
-            <SideMenu />
-          </Grid>
-
-          <Grid item xs={10}>
-            <JamContainer jamData={jamData} filteredJams={filteredJams}/>
-          </Grid>
-        </Grid>
-        
-     
-    </>
-  </ThemeProvider>
+    <GlobalStyles />
+      <div className="wrapper">
+        <BrowserRouter>
+          <Switch>
+            <Route path="/dashboard">
+              <Dashboard />
+            </Route>
+            <Route path="/profile">
+              {/* <Login /> */}
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </div>
+    </ThemeProvider>
   );
 }
 
