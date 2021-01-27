@@ -1,4 +1,3 @@
-import './App.css';
 import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './global';
