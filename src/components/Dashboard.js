@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import PrimarySearchAppBar from './PrimaryBar'
@@ -47,7 +46,7 @@ const Dashboard = (props) => {
             <PrimarySearchAppBar handleJamSearch={handleJamSearch}></PrimarySearchAppBar>
             <Grid container fluid="true">
                 <Grid item xs={2}>
-                    <SideMenu />
+                    <SideMenu handleSignOut={props.handleSignOut} />
                 </Grid>
 
                 <Grid item xs={10}>
