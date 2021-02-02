@@ -12,6 +12,12 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     margin: "2%"
   },
+  outerDiv: {
+    width: "100%",
+    alignItems: 'center',
+    marginLeft: "10%",
+    marginRight: "10%"
+  },
 }));
 
 export default function SignIn(props) {
@@ -25,12 +31,12 @@ export default function SignIn(props) {
     console.log(user)
   }
   return (
-    <div>
+    <div className={classes.outerDiv} >
     <h1 className={classes.newClass}>JamUp</h1>
       <input ref={signInEmailInput} placeholder="Email" className={classes.newClass}/>
       <input type="password" ref={signInPasswordInput} placeholder="password" className={classes.newClass}/>
       <button onClick={handleSubmit} className={classes.newClass}>Submit </button>
-      <Link to="/signup"><button className={classes.newClass}> Click here to Sign Up</button></Link>
+      <Link className={classes.newClass} to="/signup"><button > Click here to Sign Up</button></Link>
     </div>
   )
 

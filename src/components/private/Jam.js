@@ -9,7 +9,7 @@ import { useAuth } from "../../Hooks/use-auth";
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 200,
+    minWidth: "100px",
     margin: '10px'
   },
   bullet: {

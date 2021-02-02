@@ -43,11 +43,10 @@ const Dashboard = (props) => {
     return (
         <div>
             <PrimarySearchAppBar handleJamSearch={handleJamSearch}></PrimarySearchAppBar>
+           
+            <SideMenu handleSignOut={props.handleSignOut} />
+             
             <Grid container fluid="true">
-                <Grid item xs={2}>
-                    <SideMenu handleSignOut={props.handleSignOut} />
-                </Grid>
-
                 <Grid item xs={10}>
                     <JamContainer jamData={jamData} filteredJams={filteredJams}/>
                 </Grid>

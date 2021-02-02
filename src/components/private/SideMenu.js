@@ -6,8 +6,13 @@ import { useAuth } from "../../Hooks/use-auth";
 
 const useStyles = makeStyles((theme) => ({
     button: {
-        "width": "100%",
-        "margin-top": "5px"
+        width: "20%",
+        margin: "2%"
+    },
+    outer: {
+        display: "flex",
+        flexDirection: "row",
+        
     }
   }));
 
@@ -15,16 +20,20 @@ const SideMenu = (props) => {
     const auth = useAuth();
     const classes = useStyles();
     return (
-        <Grid style={{width: "100%", height: "100%",}}>
-            <Grid  item>
-                <Button className={classes.button} variant="contained">🔥</Button>
+        <Grid className={classes.outer} >
+            <Grid  className={classes.button} item>
+                <Button  variant="contained">🔥</Button>
             </Grid>
-            <Grid item>
-                <Button className={classes.button} variant="contained">👌</Button>
+            <Grid className={classes.button} item>
+                <Button  variant="contained">👌</Button>
             </Grid>
-            <Grid item>
-                <Button className={classes.button} onClick={auth.signout} variant="contained"> Logout☂️</Button>
+            <Grid className={classes.button} item>
+                <Button  variant="contained">👌</Button>
             </Grid>
+            <Grid className={classes.button} item>
+                <Button  onClick={auth.signout} variant="contained">☂️</Button>
+            </Grid>
+            
         </Grid>
     )
    
