@@ -20,7 +20,7 @@ export default function SignUp() {
   
   const handleSubmit = (e) => {
     let user = auth.signup(signUpEmailInput.current.value, signUpPasswordInput.current.value)
-    console.log(user)
+    console.log(user.email)
   }
 
   return (

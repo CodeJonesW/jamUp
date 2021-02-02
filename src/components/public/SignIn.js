@@ -1,9 +1,8 @@
-import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
+import React, { useRef } from 'react';
+import { useAuth } from "../../Hooks/use-auth";
 
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import { BorderOuterRounded } from '@material-ui/icons';
+
 
 
 
@@ -19,12 +18,19 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn(props) {
   const classes = useStyles();
+  const auth = useAuth()
+  const signInEmailInput = useRef(null);
+  const signInPasswordInput = useRef(null);
 
+  const handleSubmit = () => {
+    const user = auth.signin(signInEmailInput.current.value, signInPasswordInput.current.value)
+    console.log(user)
+  }
   return (
     <div>
-      <input placeholder="Username" className={classes.newClass}/>
-      <input placeholder="Email" className={classes.newClass}/>
-      <button className={classes.newClass}>Submit </button>
+      <input ref={signInEmailInput} placeholder="Email" className={classes.newClass}/>
+      <input ref={signInPasswordInput} placeholder="password" className={classes.newClass}/>
+      <button onClick={handleSubmit} className={classes.newClass}>Submit </button>
     </div>
   )
 
