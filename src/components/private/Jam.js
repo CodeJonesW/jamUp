@@ -42,9 +42,7 @@ export default function Jam(props) {
         {props.info}
         </Typography>
         <Typography variant="body2" component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
+          Jam Icons
         </Typography>
       </CardContent>
       <CardActions>
