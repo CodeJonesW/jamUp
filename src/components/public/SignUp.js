@@ -32,7 +32,7 @@ export default function SignUp() {
         <input className={classes.newClass} ref={signUpEmailInput} placeholder="Email"/>
         <input className={classes.newClass}ref={signUpPasswordInput} placeholder="Password"/>
         <button className={classes.newClass} onClick={(e) => handleSubmit(e)}>submit</button>
-        <Link to="/signup"><button className={classes.newClass}> Already have an account?</button></Link>
+        <Link to="/signin"><button className={classes.newClass}> Already have an account?</button></Link>
     </div>
   );
 }

@@ -6,7 +6,8 @@ import { useAuth } from "../../Hooks/use-auth";
 
 const useStyles = makeStyles((theme) => ({
     button: {
-        margin: "12%"
+        "width": "100%",
+        "margin-top": "5px"
     }
   }));
 
