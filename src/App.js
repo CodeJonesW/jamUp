@@ -27,10 +27,10 @@ function App() {
                 {auth.user ? <Dashboard /> : <Redirect to="/" />}
               </Route>
 
-
+              
               {/* in process */}
               <Route path="/create">
-              {/* will not load create page for some reason */}
+              {/* always redirects for some reason */}
                 {auth.user ? <CreateJamPage /> : <Redirect to="/" />}
               </Route>
 
