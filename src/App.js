@@ -23,7 +23,7 @@ const auth = useAuth()
               {auth.user ? <Redirect to="/dashboard" /> : <SignUp />}
               </Route>
               <Route path="/dashboard">
-                <Dashboard/>
+              {auth.user ? <Dashboard /> : <Redirect to="/" />}
               </Route>
           </Switch>
           
