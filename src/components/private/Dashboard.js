@@ -38,10 +38,7 @@ const Dashboard = (props) => {
       setSearchTerm(e.target.value);
     }
 
-    if(!auth.user){
-      return <Redirect to="/" />
-
-    }
+  
 
     return (
         <div>

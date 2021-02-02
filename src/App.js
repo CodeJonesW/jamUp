@@ -2,32 +2,30 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './global';
 import { theme } from './theme';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Dashboard from './components/private/Dashboard'
 import SignIn from './components/public/SignIn';
 import SignUp from './components/public/SignUp';
-import { ProvideAuth } from "./Hooks/use-auth";
+import { useAuth } from "./Hooks/use-auth";
+
 
 function App() {
-
   
-
+const auth = useAuth()
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <ProvideAuth>
           <Switch>
               <Route exact path="/">
-                <SignIn />
+              {auth.user ? <Redirect to="/dashboard" /> : <SignIn />}
               </Route>
               <Route path="/signup">
-                <SignUp />
+              {auth.user ? <Redirect to="/dashboard" /> : <SignUp />}
               </Route>
               <Route path="/dashboard">
                 <Dashboard/>
               </Route>
           </Switch>
-      </ProvideAuth>
           
     </ThemeProvider>
   );
