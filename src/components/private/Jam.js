@@ -5,6 +5,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { useAuth } from "../../Hooks/use-auth";
 
 const useStyles = makeStyles({
   root: {
@@ -26,7 +27,7 @@ const useStyles = makeStyles({
 
 export default function Jam(props) {
   const classes = useStyles();
- 
+  const auth = useAuth();
 
   return (
     <Card className={classes.root} variant="outlined">

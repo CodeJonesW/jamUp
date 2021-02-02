@@ -1,10 +1,10 @@
 import React from 'react'
 import Jam from './Jam.js'
 import Grid from '@material-ui/core/Grid';
-
+import { useAuth } from "../../Hooks/use-auth";
 
 const JamContainer = (props) => {
-
+const auth = useAuth();
 if(props.filteredJams){
     return (
         <Grid container fluid="true">

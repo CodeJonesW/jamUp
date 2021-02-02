@@ -1,47 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyles } from './global';
 import { theme } from './theme';
 import { Route, Switch } from 'react-router-dom';
-import Dashboard from './components/Dashboard'
-import SignIn from './components/SignIn';
-import SignUp from './components/SignUp';
-
+import Dashboard from './components/private/Dashboard'
+import SignIn from './components/public/SignIn';
+import SignUp from './components/public/SignUp';
+import { ProvideAuth } from "./Hooks/use-auth";
 
 function App() {
-
-  const [isLoggedIn, setLoginStatus] = useState(false);
-
-  const handleSignOut = () => {
-    setLoginStatus(false)
-  }
-
-  const handleSignIn = (e) => {
-    e.preventDefault()
-    setLoginStatus(true)
-  }
-
-  useEffect(() => {
-      console.log(isLoggedIn)
-  })
 
   
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-        {/* <Redirect to="/dashboard" />; */}
+      <ProvideAuth>
           <Switch>
               <Route exact path="/">
-                <SignIn handleSignIn={handleSignIn}/>
+                <SignIn />
               </Route>
               <Route path="/signup">
                 <SignUp />
               </Route>
               <Route path="/dashboard">
-                <Dashboard handleSignOut={handleSignOut}/>
+                <Dashboard/>
               </Route>
           </Switch>
+      </ProvideAuth>
+          
     </ThemeProvider>
   );
 }

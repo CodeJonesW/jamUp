@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import PrimarySearchAppBar from './PrimaryBar'
 import JamContainer from './JamContainer'
 import SideMenu from './SideMenu'
-
-
+import { useAuth } from "../../Hooks/use-auth";
+import { Redirect} from 'react-router-dom';
 
 const Dashboard = (props) => {
-
+    const auth = useAuth();
     const [jamData, setJams] = useState("");
     const [searchTerm, setSearchTerm] = React.useState("");
     const [filteredJams, setFilteredJams] = React.useState("");
@@ -39,7 +38,10 @@ const Dashboard = (props) => {
       setSearchTerm(e.target.value);
     }
 
+    if(!auth.user){
+      return <Redirect to="/" />
 
+    }
 
     return (
         <div>
