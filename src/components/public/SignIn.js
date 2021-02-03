@@ -7,18 +7,25 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   newClass: {
     width: "50%",
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    margin: "2%"
+    marginTop: '5%'
+
+  },
+  button: {
+    width: "100%",
+    marginTop: '5%'
+
   },
   outerDiv: {
     width: "100%",
     alignItems: 'center',
-    marginLeft: "10%",
-    marginRight: "10%"
+    alignContent: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    alignItems: 'center',
+    display: 'flex'
   },
 }));
+
 
 export default function SignIn(props) {
   const classes = useStyles();
@@ -32,11 +39,14 @@ export default function SignIn(props) {
   }
   return (
     <div className={classes.outerDiv} >
-    <h1 className={classes.newClass}>JamUp</h1>
-      <input ref={signInEmailInput} placeholder="Email" className={classes.newClass}/>
-      <input type="password" ref={signInPasswordInput} placeholder="password" className={classes.newClass}/>
-      <button onClick={handleSubmit} className={classes.newClass}>Submit </button>
-      <Link className={classes.newClass} to="/signup"><button > Click here to Sign Up</button></Link>
+      <h1 >JamUp</h1>
+
+      <input className={classes.newClass} ref={signInEmailInput} placeholder="Email" />
+      <input className={classes.newClass} type="password" ref={signInPasswordInput} placeholder="password" />
+      <button className={classes.newClass} onClick={handleSubmit} >Submit </button>
+      <Link  className={classes.newClass} to="/signup"><button className={classes.button}> Click to Sign Up</button></Link>
+ 
+
     </div>
   )
 
