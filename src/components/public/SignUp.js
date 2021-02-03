@@ -5,12 +5,31 @@ import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({
-  newClass: {
+  input: {
     width: "50%",
-    display: 'flex',
+    marginTop: '5%'
+
+  },
+  h1: {
+    width: "50%",
+    marginTop: '5%',
+    textAlign: 'center'
+
+  },
+  button: {
+    width: "100%",
+    marginTop: '5%'
+
+  },
+  outerDiv: {
+    marginTop: '10%',
+    width: "100%",
+    alignItems: 'center',
+    alignContent: 'center',
+    justifyContent: 'center',
     flexDirection: 'column',
     alignItems: 'center',
-    margin: "2%"
+    display: 'flex'
   },
 }));
 
@@ -33,14 +52,14 @@ export default function SignUp() {
   }
 
   return (
-    <div>
-    <h1 className={classes.newClass}>Sign up with email and password</h1>
+    <div className={classes.outerDiv}>
+    <h1 className={classes.h1}>Sign up with email and password</h1>
   
-        <input className={classes.newClass} ref={signUpEmailInput} placeholder="Email"/>
-        <input type="password" className={classes.newClass}ref={signUpPasswordInput} placeholder="Password"/>
-        <input type="password" className={classes.newClass}ref={signUpConfirmPasswordInput} placeholder="Confirm Password"/>
-        <button className={classes.newClass} onClick={(e) => handleSubmit(e)}>submit</button>
-        <Link to="/"><button className={classes.newClass}> Already have an account?</button></Link>
+        <input className={classes.input} ref={signUpEmailInput} placeholder="Email"/>
+        <input type="password" className={classes.input}ref={signUpPasswordInput} placeholder="Password"/>
+        <input type="password" className={classes.input}ref={signUpConfirmPasswordInput} placeholder="Confirm Password"/>
+        <button className={classes.input} onClick={(e) => handleSubmit(e)}>submit</button>
+        <Link className={classes.input} to="/"><button className={classes.button}> Already have an account?</button></Link>
     </div>
   );
 }
