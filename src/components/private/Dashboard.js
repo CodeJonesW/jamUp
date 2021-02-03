@@ -4,7 +4,6 @@ import PrimarySearchAppBar from './PrimaryBar'
 import JamContainer from './JamContainer'
 import SideMenu from './SideMenu'
 import { useAuth } from "../../Hooks/use-auth";
-import { Redirect} from 'react-router-dom';
 
 const Dashboard = (props) => {
     const auth = useAuth();
