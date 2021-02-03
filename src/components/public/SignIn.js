@@ -5,9 +5,15 @@ import { makeStyles } from '@material-ui/core/styles';
 
 
 const useStyles = makeStyles((theme) => ({
-  newClass: {
+  input: {
     width: "50%",
     marginTop: '5%'
+
+  },
+  h1: {
+    width: "50%",
+    marginTop: '5%',
+    textAlign: 'center'
 
   },
   button: {
@@ -16,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
 
   },
   outerDiv: {
+    marginTop: '10%',
     width: "100%",
     alignItems: 'center',
     alignContent: 'center',
@@ -39,12 +46,12 @@ export default function SignIn(props) {
   }
   return (
     <div className={classes.outerDiv} >
-      <h1 >JamUp</h1>
+      <h1 className={classes.h1} >JamUp</h1>
 
-      <input className={classes.newClass} ref={signInEmailInput} placeholder="Email" />
-      <input className={classes.newClass} type="password" ref={signInPasswordInput} placeholder="password" />
-      <button className={classes.newClass} onClick={handleSubmit} >Submit </button>
-      <Link  className={classes.newClass} to="/signup"><button className={classes.button}> Click to Sign Up</button></Link>
+      <input className={classes.input} ref={signInEmailInput} placeholder="Email" />
+      <input className={classes.input} type="password" ref={signInPasswordInput} placeholder="password" />
+      <button className={classes.input} onClick={handleSubmit} >Submit </button>
+      <Link  className={classes.input} to="/signup"><button className={classes.button}> Click to Sign Up</button></Link>
  
 
     </div>
