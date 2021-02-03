@@ -6,12 +6,25 @@ import { useAuth } from "../../Hooks/use-auth";
 
 const useStyles = makeStyles((theme) => ({
     button: {
-        width: "20%",
-        margin: "2%"
+        width: "50%",
+        
+    },
+    buttonDiv: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: 'center',
+        alignContent: 'center',
+        justifyContent: 'center',
+        width: "100%",
+        margin: "2%",
+        
     },
     outer: {
         display: "flex",
         flexDirection: "row",
+        alignItems: 'center',
+        alignContent: 'center',
+        justifyContent: 'center',
         
     }
   }));
@@ -21,17 +34,17 @@ const SideMenu = (props) => {
     const classes = useStyles();
     return (
         <Grid className={classes.outer} >
-            <Grid  className={classes.button} item>
-                <Button  variant="contained">🔥</Button>
+            <Grid  className={classes.buttonDiv} item>
+                <Button className={classes.button} variant="contained">🔥</Button>
             </Grid>
-            <Grid className={classes.button} item>
-                <Button  variant="contained">👌</Button>
+            <Grid className={classes.buttonDiv} item>
+                <Button className={classes.button} variant="contained">👌</Button>
             </Grid>
-            <Grid className={classes.button} item>
-                <Button  variant="contained">👌</Button>
+            <Grid className={classes.buttonDiv} item>
+                <Button className={classes.button} variant="contained">👌</Button>
             </Grid>
-            <Grid className={classes.button} item>
-                <Button  onClick={auth.signout} variant="contained">☂️</Button>
+            <Grid className={classes.buttonDiv} item>
+                <Button className={classes.button} onClick={auth.signout} variant="contained">☂️</Button>
             </Grid>
             
         </Grid>
