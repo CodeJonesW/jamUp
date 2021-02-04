@@ -42,7 +42,7 @@ export default function SignIn(props) {
 
   const handleSubmit = () => {
     const user = auth.signin(signInEmailInput.current.value, signInPasswordInput.current.value)
-    console.log(user)
+    console.log(user.data)
   }
   return (
     <div className={classes.outerDiv} >

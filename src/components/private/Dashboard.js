@@ -4,13 +4,15 @@ import PrimarySearchAppBar from './PrimaryBar'
 import JamContainer from './JamContainer'
 import SideMenu from './SideMenu'
 import { useAuth } from "../../Hooks/use-auth";
+import userEvent from '@testing-library/user-event';
+import jamCalls from '../../utils/jamAPI'
 
 const Dashboard = (props) => {
     const auth = useAuth();
     const [jamData, setJams] = useState("");
-    const [searchTerm, setSearchTerm] = React.useState("");
-    const [filteredJams, setFilteredJams] = React.useState("");
-  
+    const [searchTerm, setSearchTerm] = useState("");
+    const [filteredJams, setFilteredJams] = useState("");
+
     useEffect(() => {
       fetch('http://localhost:3000/jams')
       .then(res => res.json())
@@ -37,12 +39,29 @@ const Dashboard = (props) => {
       setSearchTerm(e.target.value);
     }
 
-  
+      const [postedJam, setJam] = useState('')
+
+      useEffect(() => {
+        // if posted jam changes repopulate state with all previous + new
+          console.log('newjam', postedJam)
+          setJams([...jamData, postedJam])
+        }, [postedJam]);
+
+
+      const handlePost = (jamData) => {
+        // data from new jam form
+        // post to server
+          let newJam = jamCalls.postJam(jamData)
+        // set new jam state
+          setJam(jamData)
+        }
+    
+
 
     return (
         <div>
             <PrimarySearchAppBar handleJamSearch={handleJamSearch}></PrimarySearchAppBar>
-            <SideMenu />
+            <SideMenu handlePost={handlePost}/>
             <JamContainer jamData={jamData} filteredJams={filteredJams}/>
         </div>
       

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useAuth } from "../../Hooks/use-auth";
 import { Link } from 'react-router-dom';
-
+import jamCalls from '../../utils/jamAPI'
 
 const useStyles = makeStyles((theme) => ({
   input: {
@@ -40,15 +40,15 @@ export default function SignUp() {
   const signUpPasswordInput = useRef(null);
   const signUpConfirmPasswordInput = useRef(null);
   
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     if(signUpPasswordInput.current.value !== signUpConfirmPasswordInput.current.value){
       alert("Passwords do not match")
       signUpConfirmPasswordInput.current.focus();
       return
     }
-
-    let user = auth.signup(signUpEmailInput.current.value, signUpPasswordInput.current.value)
-    console.log(user.email)
+    let password = signUpPasswordInput.current.value
+    let user = await auth.signup(signUpEmailInput.current.value, password)
+    jamCalls.postUser({"email": user.email, "password": password, "firebase": user.uid})
   }
 
   return (
