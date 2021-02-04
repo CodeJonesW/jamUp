@@ -43,8 +43,12 @@ const Dashboard = (props) => {
 
       useEffect(() => {
         // if posted jam changes repopulate state with all previous + new
-          console.log('newjam', postedJam)
-          setJams([...jamData, postedJam])
+          
+          if(postedJam){
+            console.log('newjam', postedJam)
+            setJams([...jamData, postedJam])
+          }
+          
         }, [postedJam]);
 
 
