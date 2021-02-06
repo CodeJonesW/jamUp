@@ -31,21 +31,26 @@ const useStyles = makeStyles((theme) => ({
 const Dashboard = (props) => {
     const auth = useAuth();
     const classes = useStyles();
-    const [jamData, setJams] = useState("");
-    const [searchTerm, setSearchTerm] = useState("");
-    const [filteredJams, setFilteredJams] = useState("");
 
-  // load in all jams onto dash
+  // load in all jams on page
+  const [jamData, setJams] = useState("");
     useEffect(() => {
       fetch('http://localhost:3000/jams')
       .then(res => res.json())
       .then(data => {
         setJams(data.allJams)
       })
-  
      
     }, []);
+
+
+  // --------------------------------------------------
+  // Jam Search
   // used for searching through jam list
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredJams, setFilteredJams] = useState("");
+
     useEffect(() => {
       if(jamData){
         const results = jamData.filter(jam =>
@@ -56,16 +61,16 @@ const Dashboard = (props) => {
   
     }, [searchTerm]);
   
-  
+    // this runs onchange in search filtering jams
     const handleJamSearch = (e) => {
       setSearchTerm(e.target.value);
     }
 
-// --------------------------------------------------
+    // --------------------------------------------------
     // state and useEffect for when posting new jam
       const [postedJam, setJam] = useState('')
       useEffect(() => {
-        // if posted jam changes repopulate state with all previous + new   
+      // if posted jam changes repopulate state with all previous + new   
           if(postedJam){
             console.log('newjam', postedJam)
             setJams([...jamData, postedJam])
@@ -132,17 +137,20 @@ const Dashboard = (props) => {
 // POST FAVORITE JAMS
 
             const postFavoriteJam = (e) => {
-              let likedJamId = e.currentTarget.getAttribute('data-jamid')
-              console.log(e.currentTarget)
-              jamCalls.postFavoriteJam(likedJamId, auth.user.uid)
+              let likedJamId = e.currentTarget.dataset.jamid
+              // console.log(e.currentTarget.dataset.jamid)
+              jamCalls.postFavoriteJam(likedJamId, 1)
             }
 
 
 
     return (
         <div>
+            {/* APP BAR AND BUTTONS BELOW  */}
             <PrimarySearchAppBar handleJamSearch={handleJamSearch}></PrimarySearchAppBar>
             <SideMenu togglePostModal={togglePostModal} handlePost={handlePost}/>
+            {/* ------------------------------------------------------------ */}
+            {/* POST NEW JAM MODAL */}
             <Modal
               open={open}
               onClose={togglePostModal}
@@ -158,8 +166,9 @@ const Dashboard = (props) => {
               <Fade in={open}>
                 {body}
               </Fade>
-             
+            
             </Modal>
+            {/* CONTAINER OF AVALIABLE JAMS */}
             <JamContainer postFavoriteJam={postFavoriteJam} jamData={jamData} filteredJams={filteredJams}/>
         </div>
       

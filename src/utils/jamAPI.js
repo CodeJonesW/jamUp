@@ -44,7 +44,7 @@ const jamCalls = {
             return data
       })
     },
-    postFavoriteJam: (newFavoriteJamId, firebaseUid) => {
+    postFavoriteJam: (newFavoriteJamId, userId) => {
       // update to use firebase id once we have static id working
       fetch('http://localhost:3000/favoritejams', {
           method: 'POST',
@@ -52,7 +52,7 @@ const jamCalls = {
               'Accept': 'application/json',
               'Content-Type': 'application/json',
           },
-          body: JSON.stringify({jamId: parseInt(newFavoriteJamId), userId: 1})
+          body: JSON.stringify({jamId: parseInt(newFavoriteJamId), userId: userId})
         })
       .then(res => res.json())
       .then(data => {
