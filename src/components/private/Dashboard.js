@@ -104,7 +104,9 @@ const Dashboard = (props) => {
         const togglePostModal = () => {
           setOpen(!open);
         };
-      
+        
+
+        // add new refs for new inputs time date location
         const jamTitleInput = useRef(null);
         const jamGenreInput = useRef(null);
         const jamInfoInput = useRef(null);
@@ -115,6 +117,9 @@ const Dashboard = (props) => {
             <input ref={jamTitleInput} placeholder="Jam Title"/>
             <input ref={jamGenreInput} placeholder="Info"/>
             <input ref={jamInfoInput} placeholder="Genre"/>
+            <input type="time"/>
+            <input type="date"/>
+            <input placeholder="Location"></input>
             <button onClick={(e) => handlePost(e)}>Create Jam</button>
           </div>
         );
