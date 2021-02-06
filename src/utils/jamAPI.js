@@ -14,7 +14,7 @@ const jamCalls = {
             return data
       })
     },
-    postJam: (newJam) => {
+    postJam: async (newJam) => {
         fetch('http://localhost:3000/jams', {
             method: 'POST',
             headers: {
