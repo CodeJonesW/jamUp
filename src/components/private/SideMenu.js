@@ -38,12 +38,7 @@ const SideMenu = (props) => {
     return (
         <Grid className={classes.outer} >
             <Grid  className={classes.buttonDiv} item>
-                <Button className={classes.button} onClick={() => props.handlePost({
-            title: "Wills Bluegrass Jam",
-            genre: "Bluegrass",
-            info: "come on everyone",
-            userId: 1
-        })} variant="contained">🔥</Button>
+                <Button className={classes.button} onClick={() => props.togglePostModal()} variant="contained">🔥 New jam!</Button>
             </Grid>
             <Grid className={classes.buttonDiv} item>
                 <Button className={classes.button} variant="contained">👌</Button>
