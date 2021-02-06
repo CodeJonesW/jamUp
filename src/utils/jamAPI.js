@@ -15,7 +15,7 @@ const jamCalls = {
       })
     },
     postJam: async (newJam) => {
-        fetch('http://localhost:3000/jams', {
+        let response = fetch('http://localhost:3000/jams', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -25,9 +25,9 @@ const jamCalls = {
           })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             return data
       })
+      return response
     },
     postUser: (newUser) => {
         fetch('http://localhost:3000/users', {

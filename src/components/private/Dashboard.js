@@ -93,8 +93,11 @@ const Dashboard = (props) => {
           userId: 1
         }
           jamCalls.postJam(jamData)
-          .then(() => {
+          .then((data) => {
             // set new jam state
+            // grab new jam id and at it to the jam about to be posted to state
+            console.log(data)
+            jamData.id = data.createdJamId
             setJam(jamData)
             togglePostModal()
           })
