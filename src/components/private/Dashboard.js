@@ -81,22 +81,22 @@ const Dashboard = (props) => {
       setSearchTerm(e.target.value);
     }
 
-    // --------------------------------------------------
-    // state and useEffect for when posting new jam
-      const [postedJam, setJam] = useState('')
-      useEffect(() => {
-      // if posted jam changes repopulate state with all previous + new   
-          if(postedJam){
-            console.log('newjam', postedJam)
-            setJams([...jamData, postedJam])
-          }
-          
-        }, [postedJam]);
-
 
 
 // -------------------------------------------------------------
 // POST NEW JAM
+    // --------------------------------------------------
+    // state and useEffect for when posting new jam
+    const [postedJam, setJam] = useState('')
+    useEffect(() => {
+    // if posted jam changes repopulate state with all previous + new   
+        if(postedJam){
+          console.log('newjam', postedJam)
+          setJams([...jamData, postedJam])
+        }
+        
+      }, [postedJam]);
+
 
       const handlePost = (e) => {
         console.log(e)
