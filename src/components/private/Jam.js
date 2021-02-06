@@ -46,6 +46,7 @@ export default function Jam(props) {
       </CardContent>
       <CardActions>
         <Button size="small">Learn More</Button>
+        <Button data-jamid={props.id} onClick={(e) => props.postFavoriteJam(e)} size="small">❤️</Button>
       </CardActions>
     </Card>
   );

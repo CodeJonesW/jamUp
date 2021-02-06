@@ -124,6 +124,21 @@ const Dashboard = (props) => {
           </div>
         );
 
+
+
+
+
+// ----------------------------------------------------------
+// POST FAVORITE JAMS
+
+            const postFavoriteJam = (e) => {
+              let likedJamId = e.currentTarget.getAttribute('data-jamid')
+              console.log(e.currentTarget)
+              jamCalls.postFavoriteJam(likedJamId, auth.user.uid)
+            }
+
+
+
     return (
         <div>
             <PrimarySearchAppBar handleJamSearch={handleJamSearch}></PrimarySearchAppBar>
@@ -145,7 +160,7 @@ const Dashboard = (props) => {
               </Fade>
              
             </Modal>
-            <JamContainer jamData={jamData} filteredJams={filteredJams}/>
+            <JamContainer postFavoriteJam={postFavoriteJam} jamData={jamData} filteredJams={filteredJams}/>
         </div>
       
     )
