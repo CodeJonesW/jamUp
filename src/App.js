@@ -6,7 +6,6 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import Dashboard from './components/private/Dashboard'
 import SignIn from './components/public/SignIn';
 import SignUp from './components/public/SignUp';
-// import CreateJamPage from './components/private/CreateJamPage'
 import { useAuth } from "./Hooks/use-auth";
 
 
