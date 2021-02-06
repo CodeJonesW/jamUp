@@ -44,9 +44,8 @@ const Dashboard = (props) => {
     }, []);
 
 
-  // --------------------------------------------------
-  // Jam Search
-  // used for searching through jam list
+// --------------------------------------------------
+// SEARCH JAMS
 
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredJams, setFilteredJams] = useState("");
@@ -80,7 +79,8 @@ const Dashboard = (props) => {
 
 
 
-
+// -------------------------------------------------------------
+// POST NEW JAM
 
       const handlePost = (e) => {
         console.log(e)
@@ -92,13 +92,15 @@ const Dashboard = (props) => {
           info: jamInfoInput.current.value,
           userId: 1
         }
+        // FIREBASE UPDATE ^ FROM USER ID
           jamCalls.postJam(jamData)
           .then((data) => {
-            // set new jam state
+           
             // grab new jam id and at it to the jam about to be posted to state
-            console.log(data)
             jamData.id = data.createdJamId
+             // set new jam state
             setJam(jamData)
+            // turn off modal
             togglePostModal()
           })
     
@@ -137,12 +139,21 @@ const Dashboard = (props) => {
 
 
 // ----------------------------------------------------------
-// POST FAVORITE JAMS
+// POST FAVORITE JAM
 
             const postFavoriteJam = (e) => {
               let likedJamId = e.currentTarget.dataset.jamid
               // console.log(e.currentTarget.dataset.jamid)
-              jamCalls.postFavoriteJam(likedJamId, 1)
+              jamCalls.postFavoriteJam(likedJamId, 1).then((data) => {
+                console.log(data)
+                if(data.msg){
+                  alert(data.msg)
+                } else {
+                  alert("Added to Favorites")
+                }
+              })
+              // FIREBASE UPDATE FROM USER ID ^^
+              
             }
 
 

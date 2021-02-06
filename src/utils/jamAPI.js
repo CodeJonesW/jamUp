@@ -46,7 +46,7 @@ const jamCalls = {
     },
     postFavoriteJam: (newFavoriteJamId, userId) => {
       // update to use firebase id once we have static id working
-      fetch('http://localhost:3000/favoritejams', {
+      let response = fetch('http://localhost:3000/favoritejams', {
           method: 'POST',
           headers: {
               'Accept': 'application/json',
@@ -56,9 +56,10 @@ const jamCalls = {
         })
       .then(res => res.json())
       .then(data => {
-          console.log(data)
+          // console.log(data)
           return data
     })
+    return response
   },
 };
 
