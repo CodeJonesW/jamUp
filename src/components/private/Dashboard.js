@@ -40,12 +40,19 @@ const Dashboard = (props) => {
       .then(data => {
         setJams(data.allJams)
       })
+
+      jamCalls.findUserFavoriteJams(1)
+      .then((data) => {
+        setUserFavoriteJams(data.userFavoriteJams)
+      })
+      //FIREBASE UPDATE FROM USER ID ^^
+     
      
     }, []);
 
 
 // --------------------------------------------------
-// SEARCH JAMS
+// FILTER JAMS KEYWORDS (SEARCH)
 
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredJams, setFilteredJams] = useState("");
@@ -156,13 +163,29 @@ const Dashboard = (props) => {
               
             }
 
+// --------------------------------------------------------------
+// FILTER FOR USERS FAVORITES
+            const [displayFavorites, toggleDisplayFavorites] = useState(false)
+            const [userFavoriteJams, setUserFavoriteJams] = useState(null)
 
+            const handleShowFavorites = async () => {
+              toggleDisplayFavorites(!displayFavorites)
+              let data = await jamCalls.findUserFavoriteJams(1)
+                console.log(data)
+                //FIREBASE UPDATE FROM USER ID ^^
+                setUserFavoriteJams(data.userFavoriteJams)
+                
+            }
+
+            useEffect(() => {
+              // console.log(displayFavorites)
+            }, [displayFavorites]);
 
     return (
         <div>
             {/* APP BAR AND BUTTONS BELOW  */}
             <PrimarySearchAppBar handleJamSearch={handleJamSearch}></PrimarySearchAppBar>
-            <SideMenu togglePostModal={togglePostModal} handlePost={handlePost}/>
+            <SideMenu handleShowFavorites={handleShowFavorites} togglePostModal={togglePostModal} handlePost={handlePost}/>
             {/* ------------------------------------------------------------ */}
             {/* POST NEW JAM MODAL */}
             <Modal
@@ -183,7 +206,8 @@ const Dashboard = (props) => {
             
             </Modal>
             {/* CONTAINER OF AVALIABLE JAMS */}
-            <JamContainer postFavoriteJam={postFavoriteJam} jamData={jamData} filteredJams={filteredJams}/>
+            
+            <JamContainer displayFavorites={displayFavorites} userFavoriteJams={userFavoriteJams} postFavoriteJam={postFavoriteJam} jamData={jamData} userFavoriteJams={userFavoriteJams} filteredJams={filteredJams}/>
         </div>
       
     )

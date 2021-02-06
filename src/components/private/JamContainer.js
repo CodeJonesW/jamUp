@@ -30,6 +30,19 @@ if(props.filteredJams){
             })}
         </Grid>
     )
+} else if(props.displayFavorites && props.userFavoriteJams) {
+    return (
+        <Grid className={classes.jamContainer} container fluid="true">
+        {console.log(props.userFavoriteJams)}
+            {props.userFavoriteJams.map((jam, index) => {
+                return (
+                    <Grid className={classes.jamDiv} key={index} item xs={12} sm={6}>
+                        <Jam postFavoriteJam={(e) => props.postFavoriteJam(e)} title={jam.title} genre={jam.genre} info={jam.info} jamId={jam.id}/>
+                    </Grid>
+                )
+            })}
+        </Grid>
+    )
 } else {
     return (
         <Grid className={classes.jamContainer} container fluid="true">

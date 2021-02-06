@@ -38,10 +38,10 @@ const SideMenu = (props) => {
     return (
         <Grid className={classes.outer} >
             <Grid  className={classes.buttonDiv} item>
-                <Button className={classes.button} onClick={() => props.togglePostModal()} variant="contained">🔥 New jam!</Button>
+                <Button className={classes.button} onClick={() => props.togglePostModal()} variant="contained">New jam🔥</Button>
             </Grid>
             <Grid className={classes.buttonDiv} item>
-                <Button className={classes.button} variant="contained">👌</Button>
+                <Button className={classes.button} variant="contained" onClick={() => props.handleShowFavorites()}>Favorite ❤️</Button>
             </Grid>
             <Grid className={classes.buttonDiv} item>
                 <Button className={classes.button} variant="contained">👌</Button>
