@@ -31,20 +31,28 @@ const useStyles = makeStyles((theme) => ({
 const Dashboard = (props) => {
     const auth = useAuth();
     const classes = useStyles();
+    const [loggedInUserId, setUserId] = useState(null)
 
   // load in all jams on page
   const [jamData, setJams] = useState("");
-    useEffect(() => {
+    useEffect( () => {
+      jamCalls.getUserByUid(auth.user.uid)
+      .then((data) => {
+        // console.log("here", data.userInfo[0].id)
+        setUserId(data.userInfo[0].id)
+        jamCalls.findUserFavoriteJams(data.userInfo[0].id)
+      .then((data) => {
+        setUserFavoriteJams(data.userFavoriteJams)
+      })
+      })
+     
       fetch('http://localhost:3000/jams')
       .then(res => res.json())
       .then(data => {
         setJams(data.allJams)
       })
 
-      jamCalls.findUserFavoriteJams(1)
-      .then((data) => {
-        setUserFavoriteJams(data.userFavoriteJams)
-      })
+      
       //FIREBASE UPDATE FROM USER ID ^^
      
      
@@ -97,7 +105,7 @@ const Dashboard = (props) => {
           title: jamTitleInput.current.value,
           genre: jamGenreInput.current.value,
           info: jamInfoInput.current.value,
-          userId: 1
+          userId: loggedInUserId
         }
         // FIREBASE UPDATE ^ FROM USER ID
           jamCalls.postJam(jamData)
@@ -151,7 +159,7 @@ const Dashboard = (props) => {
             const postFavoriteJam = (e) => {
               let likedJamId = e.currentTarget.dataset.jamid
               // console.log(e.currentTarget.dataset.jamid)
-              jamCalls.postFavoriteJam(likedJamId, 1).then((data) => {
+              jamCalls.postFavoriteJam(likedJamId, loggedInUserId).then((data) => {
                 console.log(data)
                 if(data.msg){
                   alert(data.msg)
@@ -170,7 +178,7 @@ const Dashboard = (props) => {
 
             const handleShowFavorites = async () => {
               toggleDisplayFavorites(!displayFavorites)
-              let data = await jamCalls.findUserFavoriteJams(1)
+              let data = await jamCalls.findUserFavoriteJams(loggedInUserId)
                 console.log(data)
                 //FIREBASE UPDATE FROM USER ID ^^
                 setUserFavoriteJams(data.userFavoriteJams)

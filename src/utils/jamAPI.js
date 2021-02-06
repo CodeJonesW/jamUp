@@ -29,6 +29,15 @@ const jamCalls = {
       })
       return response
     },
+    getUserByUid: async (uid) => {
+      let response = fetch(`http://localhost:3000/users/${uid}`)
+        .then(res => res.json())
+        .then(data => {
+            // console.log(data)
+            return data
+      })
+      return response
+    },
     postUser: (newUser) => {
         fetch('http://localhost:3000/users', {
             method: 'POST',
@@ -77,6 +86,7 @@ const jamCalls = {
   })
   return response
 },
+
 };
 
 export default jamCalls;
