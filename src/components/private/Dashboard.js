@@ -36,14 +36,20 @@ const Dashboard = (props) => {
   // load in all jams on page
   const [jamData, setJams] = useState("");
     useEffect( () => {
-      jamCalls.getUserByUid(auth.user.uid)
-      .then((data) => {
-        // console.log("here", data.userInfo[0].id)
-        setUserId(data.userInfo[0].id)
-        jamCalls.findUserFavoriteJams(data.userInfo[0].id)
-      .then((data) => {
-        setUserFavoriteJams(data.userFavoriteJams)
-      })
+      // using set timeout to allow time for firebase and my db to create user so that 
+      // we can grab the user by uid
+      setTimeout(function(){
+        jamCalls.getUserByUid(auth.user.uid)
+        .then((data) => {
+          console.log(data)
+          console.log("here", data.userInfo[0].id)
+          setUserId(data.userInfo[0].id)
+          jamCalls.findUserFavoriteJams(data.userInfo[0].id)
+        .then((userFavoriteJamData) => {
+          setUserFavoriteJams(userFavoriteJamData.userFavoriteJams)
+        })
+      }, 3000);
+      
       })
      
       fetch('http://localhost:3000/jams')
@@ -51,11 +57,6 @@ const Dashboard = (props) => {
       .then(data => {
         setJams(data.allJams)
       })
-
-      
-      //FIREBASE UPDATE FROM USER ID ^^
-     
-     
     }, []);
 
 
