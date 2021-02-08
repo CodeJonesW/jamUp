@@ -33,7 +33,7 @@ if(props.filteredJams){
 } else if(props.displayFavorites && props.userFavoriteJams) {
     return (
         <Grid className={classes.jamContainer} container fluid="true">
-        {console.log(props.userFavoriteJams)}
+        {console.log("second return", props.userFavoriteJams)}
             {props.userFavoriteJams.map((jam, index) => {
                 return (
                     <Grid className={classes.jamDiv} key={index} item xs={12} sm={6}>

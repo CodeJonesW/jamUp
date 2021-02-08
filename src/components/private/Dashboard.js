@@ -181,7 +181,6 @@ const Dashboard = (props) => {
               toggleDisplayFavorites(!displayFavorites)
               let data = await jamCalls.findUserFavoriteJams(loggedInUserId)
                 console.log(data)
-                //FIREBASE UPDATE FROM USER ID ^^
                 setUserFavoriteJams(data.userFavoriteJams)
                 
             }

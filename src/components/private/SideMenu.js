@@ -7,7 +7,9 @@ import { useAuth } from "../../Hooks/use-auth";
 
 const useStyles = makeStyles((theme) => ({
     button: {
-        width: "100%",
+        width: "80%",
+        height: "90%",
+        margin: "1%"
     },
     buttonDiv: {
         display: "flex",
@@ -15,8 +17,8 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         alignContent: 'center',
         justifyContent: 'center',
-        width: "100%",
-        margin: "2%",
+        width: "90%"
+        
         
     },
     outer: {
@@ -25,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         alignContent: 'center',
         justifyContent: 'center',
-        
+        marginTop: '1%'
     }
   }));
 
@@ -38,7 +40,7 @@ const SideMenu = (props) => {
     return (
         <Grid className={classes.outer} >
             <Grid  className={classes.buttonDiv} item>
-                <Button className={classes.button} onClick={() => props.togglePostModal()} variant="contained">New jam 🎹🔥</Button>
+                <Button className={classes.button} onClick={() => props.togglePostModal()} variant="contained">Jam 🎹 </Button>
             </Grid>
             <Grid className={classes.buttonDiv} item>
                 <Button className={classes.button} variant="contained" onClick={() => props.handleShowFavorites()}>Favorites ❤️</Button>
