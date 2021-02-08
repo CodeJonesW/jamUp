@@ -180,7 +180,7 @@ const Dashboard = (props) => {
             const handleShowFavorites = async () => {
               toggleDisplayFavorites(!displayFavorites)
               let data = await jamCalls.findUserFavoriteJams(loggedInUserId)
-                console.log(data)
+                // console.log(data, displayFavorites)
                 setUserFavoriteJams(data.userFavoriteJams)
                 
             }
