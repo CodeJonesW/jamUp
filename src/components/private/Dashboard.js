@@ -48,7 +48,7 @@ const Dashboard = (props) => {
         .then((userFavoriteJamData) => {
           setUserFavoriteJams(userFavoriteJamData.userFavoriteJams)
         })
-      }, 3000);
+      }, 1000);
       
       })
      
@@ -159,7 +159,8 @@ const Dashboard = (props) => {
 
             const postFavoriteJam = (e) => {
               let likedJamId = e.currentTarget.dataset.jamid
-              // console.log(e.currentTarget.dataset.jamid)
+              console.log(e.currentTarget)
+              console.log(e.currentTarget.dataset.jamid)
               jamCalls.postFavoriteJam(likedJamId, loggedInUserId).then((data) => {
                 console.log(data)
                 if(data.msg){
@@ -215,7 +216,7 @@ const Dashboard = (props) => {
             </Modal>
             {/* CONTAINER OF AVALIABLE JAMS */}
             
-            <JamContainer displayFavorites={displayFavorites} userFavoriteJams={userFavoriteJams} postFavoriteJam={postFavoriteJam} jamData={jamData} userFavoriteJams={userFavoriteJams} filteredJams={filteredJams}/>
+            <JamContainer displayFavorites={displayFavorites} userFavoriteJams={userFavoriteJams} postFavoriteJam={postFavoriteJam} jamData={jamData} filteredJams={filteredJams}/>
         </div>
       
     )

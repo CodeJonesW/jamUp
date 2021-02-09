@@ -32,16 +32,16 @@ export default function Jam(props) {
     <Card className={classes.root} variant="outlined">
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          {props.title}
+        {props.genre}
         </Typography>
         <Typography variant="h5" component="h2">
-            {props.genre}
+            {props.title}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
         {props.info}
         </Typography>
         <Typography variant="body2" component="p">
-          Jam Icons
+          🎺 🥁 🎸
         </Typography>
       </CardContent>
       <CardActions>

@@ -24,7 +24,7 @@ if(props.filteredJams){
             {props.filteredJams.map((jam, index) => {
                 return (
                     <Grid className={classes.jamDiv} key={index} item xs={12} sm={6}>
-                        <Jam postFavoriteJam={(e) => props.postFavoriteJam(e)} title={jam.title} genre={jam.genre} info={jam.info} jamId={jam.id}/>
+                        <Jam postFavoriteJam={(e) => props.postFavoriteJam(e)} title={jam.title} genre={jam.genre} info={jam.info} id={jam.id}/>
                     </Grid>
                 )
             })}
@@ -37,7 +37,7 @@ if(props.filteredJams){
             {props.userFavoriteJams.map((jam, index) => {
                 return (
                     <Grid className={classes.jamDiv} key={index} item xs={12} sm={6}>
-                        <Jam postFavoriteJam={(e) => props.postFavoriteJam(e)} title={jam.title} genre={jam.genre} info={jam.info} jamId={jam.id}/>
+                        <Jam postFavoriteJam={(e) => props.postFavoriteJam(e)} title={jam.title} genre={jam.genre} info={jam.info} id={jam.jamId}/>
                     </Grid>
                 )
             })}
