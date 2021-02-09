@@ -111,6 +111,9 @@ const Dashboard = (props) => {
           title: jamTitleInput.current.value,
           genre: jamGenreInput.current.value,
           info: jamInfoInput.current.value,
+          jamDate: jamDate.current.value,
+          jamTime: jamTime.current.value,
+          location: jamLocation.current.value,
           userId: loggedInUserId
         }
         // FIREBASE UPDATE ^ FROM USER ID
@@ -141,16 +144,19 @@ const Dashboard = (props) => {
         const jamTitleInput = useRef(null);
         const jamGenreInput = useRef(null);
         const jamInfoInput = useRef(null);
+        const jamTime = useRef(null)
+        const jamDate = useRef(null)
+        const jamLocation = useRef(null)
         // html for  post modal
         const body = (
           <div className={classes.paper}>
             <h2 id="simple-modal-title">Create a New Jam</h2>
             <input ref={jamTitleInput} placeholder="Jam Title"/>
-            <input ref={jamGenreInput} placeholder="Info"/>
-            <input ref={jamInfoInput} placeholder="Genre"/>
-            <input type="time"/>
-            <input type="date"/>
-            <input placeholder="Location"></input>
+            <input ref={jamInfoInput} placeholder="Info"/>
+            <input ref={jamGenreInput} placeholder="Genre"/>
+            <input ref={jamTime}type="time"/>
+            <input ref={jamDate}type="date"/>
+            <input ref={jamLocation} placeholder="Location"></input>
             <button onClick={(e) => handlePost(e)}>Create Jam</button>
           </div>
         );
