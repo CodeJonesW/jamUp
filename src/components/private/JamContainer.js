@@ -24,7 +24,7 @@ if(props.filteredJams){
             {props.filteredJams.map((jam, index) => {
                 return (
                     <Grid className={classes.jamDiv} key={index} item xs={12} sm={6}>
-                        <Jam postFavoriteJam={(e) => props.postFavoriteJam(e)} title={jam.title} genre={jam.genre} info={jam.info} id={jam.id}/>
+                        <Jam handleDeleteJam={props.handleDeleteJam} loggedInUserId={props.loggedInUserId} postFavoriteJam={(e) => props.postFavoriteJam(e)} title={jam.title} genre={jam.genre} info={jam.info} id={jam.id} userId={jam.userId}/>
                     </Grid>
                 )
             })}
@@ -35,9 +35,10 @@ if(props.filteredJams){
         <Grid className={classes.jamContainer} container fluid="true">
         {console.log("second return", props.userFavoriteJams)}
             {props.userFavoriteJams.map((jam, index) => {
+               
                 return (
                     <Grid className={classes.jamDiv} key={index} item xs={12} sm={6}>
-                        <Jam postFavoriteJam={(e) => props.postFavoriteJam(e)} title={jam.title} genre={jam.genre} info={jam.info} id={jam.jamId}/>
+                        <Jam handleDeleteJam={props.handleDeleteJam} loggedInUserId={props.loggedInUserId} postFavoriteJam={(e) => props.postFavoriteJam(e)} title={jam.title} genre={jam.genre} info={jam.info} id={jam.jamId} userId={jam.userId}/>
                     </Grid>
                 )
             })}
@@ -49,7 +50,7 @@ if(props.filteredJams){
             {props.jamData ? props.jamData.map((jam, index) => {
                 return(
                     <Grid className={classes.jamDiv} key={index} item xs={12} sm={6}>
-                        <Jam postFavoriteJam={(e) => props.postFavoriteJam(e)} title={jam.title} genre={jam.genre} info={jam.info} id={jam.id}/>
+                        <Jam handleDeleteJam={props.handleDeleteJam} loggedInUserId={props.loggedInUserId} postFavoriteJam={(e) => props.postFavoriteJam(e)} title={jam.title} genre={jam.genre} info={jam.info} id={jam.id} userId={jam.userId}/>
                     </Grid>
                 )
             }) : null}

@@ -70,22 +70,38 @@ const jamCalls = {
     })
     return response
   },
-  findUserFavoriteJams: async (userId) => {
-    // update to use firebase id once we have static id working
-    let response = fetch(`http://localhost:3000/favoritejams/${userId}`, {
-        method: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-        },
+      findUserFavoriteJams: async (userId) => {
+        // update to use firebase id once we have static id working
+        let response = fetch(`http://localhost:3000/favoritejams/${userId}`, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+          })
+        .then(res => res.json())
+        .then(data => {
+            // console.log(data)
+            return data
       })
-    .then(res => res.json())
-    .then(data => {
-        // console.log(data)
-        return data
-  })
-  return response
-},
+      return response
+    },
+    deleteJamById: async (jamId, userId) => {
+      // update to use firebase id once we have static id working
+      let response = fetch(`http://localhost:3000/jams/${jamId}/${userId}`, {
+          method: 'DELETE',
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+          },
+        })
+      .then(res => res.json())
+      .then(data => {
+          // console.log(data)
+          return data
+    })
+    return response
+    },
 
 };
 

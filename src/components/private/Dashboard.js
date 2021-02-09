@@ -179,9 +179,22 @@ const Dashboard = (props) => {
                 } else {
                   alert("Added to Favorites")
                 }
-              })
-              // FIREBASE UPDATE FROM USER ID ^^
-              
+              }) 
+            }
+
+
+// --------------------------------------------------------------
+// Delete User's Jam
+
+            const handleDeleteJam = (e) => {
+              let jamIdToDelete = e.currentTarget.dataset.jamid
+              let answer = window.confirm("Are you sure you want to delete this jam?")
+              if (answer) {
+                jamCalls.deleteJamById(jamIdToDelete, loggedInUserId)
+              } else {
+                return
+              }
+
             }
 
 // --------------------------------------------------------------
@@ -227,7 +240,7 @@ const Dashboard = (props) => {
             </Modal>
             {/* CONTAINER OF AVALIABLE JAMS */}
             
-            <JamContainer displayFavorites={displayFavorites} userFavoriteJams={userFavoriteJams} postFavoriteJam={postFavoriteJam} jamData={jamData} filteredJams={filteredJams}/>
+            <JamContainer handleDeleteJam={handleDeleteJam} loggedInUserId={loggedInUserId} displayFavorites={displayFavorites} userFavoriteJams={userFavoriteJams} postFavoriteJam={postFavoriteJam} jamData={jamData} filteredJams={filteredJams}/>
         </div>
       
     )
