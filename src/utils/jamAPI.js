@@ -86,6 +86,16 @@ const jamCalls = {
       })
       return response
     },
+      findUsersWhoFavoritedJam: async (jamId) => {
+        // update to use firebase id once we have static id working
+        let response = fetch(`http://localhost:3000/usersByFavoritedJam/${jamId}`)
+        .then(res => res.json())
+        .then(data => {
+            // console.log(data)
+            return data
+      })
+      return response
+    },
     deleteJamById: async (jamId, userId) => {
       // update to use firebase id once we have static id working
       let response = fetch(`http://localhost:3000/jams/${jamId}/${userId}`, {

@@ -39,7 +39,6 @@ const Dashboard = (props) => {
       // using set timeout to allow time for firebase and my db to create user so that 
       // we can grab the user by uid
       setTimeout(function(){
-        // jamCalls.postUser({"email": auth.user.email, "firebase": auth.user.uid})
 
         jamCalls.getUserByUid(auth.user.uid)
         .then((data) => {
@@ -47,11 +46,12 @@ const Dashboard = (props) => {
             auth.signout()
           }
           console.log(data)
-          console.log("here", data.userInfo[0].id)
+          // console.log("here", data.userInfo[0].id)
           setUserId(data.userInfo[0].id)
           jamCalls.findUserFavoriteJams(data.userInfo[0].id)
-        .then((userFavoriteJamData) => {
+          .then((userFavoriteJamData) => {
           setUserFavoriteJams(userFavoriteJamData.userFavoriteJams)
+
         })
       }, 2000);
       
@@ -144,9 +144,9 @@ const Dashboard = (props) => {
         const jamTitleInput = useRef(null);
         const jamGenreInput = useRef(null);
         const jamInfoInput = useRef(null);
-        const jamTime = useRef(null)
-        const jamDate = useRef(null)
-        const jamLocation = useRef(null)
+        const jamTime = useRef(null);
+        const jamDate = useRef(null);
+        const jamLocation = useRef(null);
         // html for  post modal
         const body = (
           <div className={classes.paper}>
@@ -214,6 +214,24 @@ const Dashboard = (props) => {
               // console.log(displayFavorites)
             }, [displayFavorites]);
 
+
+// ---------------------------------------------------
+// Handle Learn More Modal
+ // html for learn more modal
+       
+        const handleLearnMore = (e, props) => {
+          console.log(e.currentTarget)
+          console.log(props)
+          jamCalls.findUsersWhoFavoritedJam(props.id)
+          .then((data) => {
+            console.log(data.usersWhoFavoriteJamId.length)
+             
+            
+          })
+        }
+
+       
+
     return (
         <div>
             {/* APP BAR AND BUTTONS BELOW  */}
@@ -238,9 +256,11 @@ const Dashboard = (props) => {
               </Fade>
             
             </Modal>
+            {/* LEARN MORE MODAL */}
+            
             {/* CONTAINER OF AVALIABLE JAMS */}
             
-            <JamContainer handleDeleteJam={handleDeleteJam} loggedInUserId={loggedInUserId} displayFavorites={displayFavorites} userFavoriteJams={userFavoriteJams} postFavoriteJam={postFavoriteJam} jamData={jamData} filteredJams={filteredJams}/>
+            <JamContainer handleLearnMore={handleLearnMore} handleDeleteJam={handleDeleteJam} loggedInUserId={loggedInUserId} displayFavorites={displayFavorites} userFavoriteJams={userFavoriteJams} postFavoriteJam={postFavoriteJam} jamData={jamData} filteredJams={filteredJams}/>
         </div>
       
     )
