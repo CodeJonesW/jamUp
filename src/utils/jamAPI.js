@@ -38,7 +38,7 @@ const jamCalls = {
       })
       return response
     },
-    postUser: (newUser) => {
+    postUser: async (newUser) => {
         fetch('http://localhost:3000/users', {
             method: 'POST',
             headers: {
