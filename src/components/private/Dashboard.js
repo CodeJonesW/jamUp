@@ -116,11 +116,17 @@ const Dashboard = (props) => {
           location: jamLocation.current.value,
           userId: loggedInUserId
         }
-        // FIREBASE UPDATE ^ FROM USER ID
+
+     
+        
+        
           jamCalls.postJam(jamData)
           .then((data) => {
-           
-            // grab new jam id and at it to the jam about to be posted to state
+            // changing jamDate to hold utc so correct time is displayed immediately after post
+            const d = new Date(jamData.jamDate + "T" + jamData.jamTime);
+            const newUtcDate = d.toUTCString();
+            jamData.jamDate = newUtcDate
+            // grab new jam id and append it to the jam about to be posted to state
             jamData.id = data.createdJamId
              // set new jam state
             setJam(jamData)
