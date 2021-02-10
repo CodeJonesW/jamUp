@@ -191,6 +191,10 @@ const Dashboard = (props) => {
               let answer = window.confirm("Are you sure you want to delete this jam?")
               if (answer) {
                 jamCalls.deleteJamById(jamIdToDelete, loggedInUserId)
+                .then(data => {
+                  setJams(data.allJams)
+                })
+                
               } else {
                 return
               }
