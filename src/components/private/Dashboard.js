@@ -224,7 +224,7 @@ const Dashboard = (props) => {
           console.log(props)
           jamCalls.findUsersWhoFavoritedJam(props.id)
           .then((data) => {
-            console.log(data.usersWhoFavoriteJamId.length)
+            console.log("Number of users who like jam", data.usersWhoFavoriteJamId.length)
              
             
           })

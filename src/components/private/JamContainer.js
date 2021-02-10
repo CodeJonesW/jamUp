@@ -24,7 +24,7 @@ if(props.filteredJams){
             {props.filteredJams.map((jam, index) => {
                 return (
                     <Grid className={classes.jamDiv} key={index} item xs={12} sm={6}>
-                        <Jam handleLearnMore={props.handleLearnMore} handleDeleteJam={props.handleDeleteJam} loggedInUserId={props.loggedInUserId} postFavoriteJam={(e) => props.postFavoriteJam(e)} title={jam.title} genre={jam.genre} info={jam.info} id={jam.id} userId={jam.userId}/>
+                        <Jam jamDate={jam.jamDate} handleLearnMore={props.handleLearnMore} handleDeleteJam={props.handleDeleteJam} loggedInUserId={props.loggedInUserId} postFavoriteJam={(e) => props.postFavoriteJam(e)} title={jam.title} genre={jam.genre} info={jam.info} id={jam.id} userId={jam.userId} location={jam.location}/>
                     </Grid>
                 )
             })}
@@ -38,7 +38,7 @@ if(props.filteredJams){
                
                 return (
                     <Grid className={classes.jamDiv} key={index} item xs={12} sm={6}>
-                        <Jam handleLearnMore={props.handleLearnMore} handleDeleteJam={props.handleDeleteJam} loggedInUserId={props.loggedInUserId} postFavoriteJam={(e) => props.postFavoriteJam(e)} title={jam.title} genre={jam.genre} info={jam.info} id={jam.jamId} userId={jam.userId}/>
+                        <Jam jamDate={jam.jamDate} handleLearnMore={props.handleLearnMore} handleDeleteJam={props.handleDeleteJam} loggedInUserId={props.loggedInUserId} postFavoriteJam={(e) => props.postFavoriteJam(e)} title={jam.title} genre={jam.genre} info={jam.info} id={jam.jamId} userId={jam.userId} location={jam.location}/>
                     </Grid>
                 )
             })}
@@ -50,7 +50,7 @@ if(props.filteredJams){
             {props.jamData ? props.jamData.map((jam, index) => {
                 return(
                     <Grid className={classes.jamDiv} key={index} item xs={12} sm={6}>
-                        <Jam handleLearnMore={props.handleLearnMore} handleDeleteJam={props.handleDeleteJam} loggedInUserId={props.loggedInUserId} postFavoriteJam={(e) => props.postFavoriteJam(e)} title={jam.title} genre={jam.genre} info={jam.info} id={jam.id} userId={jam.userId}/>
+                        <Jam jamDate={jam.jamDate} handleLearnMore={props.handleLearnMore} handleDeleteJam={props.handleDeleteJam} loggedInUserId={props.loggedInUserId} postFavoriteJam={(e) => props.postFavoriteJam(e)} title={jam.title} genre={jam.genre} info={jam.info} id={jam.id} userId={jam.userId} location={jam.location}/>
                     </Grid>
                 )
             }) : null}

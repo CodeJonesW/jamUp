@@ -27,6 +27,12 @@ const useStyles = makeStyles({
 export default function Jam(props) {
   const classes = useStyles();
   const auth = useAuth();
+  const date = new Date(props.jamDate);
+  let dateArray = date.toString().split(" ")
+  console.log(dateArray)
+  let renderDate = dateArray[0] + ", " + dateArray[1] + " " + dateArray[2] + " " + dateArray[3] + " " + dateArray[4] + " " + dateArray[6][1] + dateArray[7][0] + dateArray[8][0] 
+
+
 
   return (
     <Card className={classes.root} variant="outlined">
@@ -38,10 +44,13 @@ export default function Jam(props) {
             {props.title}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-        {props.info}
+        Info: {props.info}
         </Typography>
         <Typography variant="body2" component="p">
-          🎺 🥁 🎸
+          Location: {props.location}
+        </Typography>
+        <Typography variant="body2" component="p">
+          🕰 Time: {renderDate}
         </Typography>
       </CardContent>
       <CardActions>
