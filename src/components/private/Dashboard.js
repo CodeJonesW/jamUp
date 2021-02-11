@@ -104,9 +104,13 @@ const Dashboard = (props) => {
 
 
       const handlePost = (e) => {
-        console.log(e)
+        // console.log(e)
         // data from new jam form
         // post to server
+        if(!jamDate.current.value || !jamTime.current.value) {
+          alert("Jams must have a date and time")
+          return
+        }
         let jamData = {
           title: jamTitleInput.current.value,
           genre: jamGenreInput.current.value,
