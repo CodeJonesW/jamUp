@@ -1,18 +1,12 @@
 
 const jamCalls = {
-    getAllJams: () => {
-        fetch('http://localhost:3000/jams')
+    getAllJams: async (page = 0) => {
+        let response = fetch(`http://localhost:3000/allJams/${page}`)
         .then(res => res.json())
         .then(data => {
             return data
       })
-    },
-    getUsersLikedJams: () => {
-        fetch('http://localhost:3000/IMPLEMENT')
-        .then(res => res.json())
-        .then(data => {
-            return data
-      })
+      return response
     },
     postJam: async (newJam) => {
         let response = fetch('http://localhost:3000/jams', {
@@ -96,9 +90,9 @@ const jamCalls = {
       })
       return response
     },
-    deleteJamById: async (jamId, userId) => {
+    deleteJamById: async (jamId, userId, pageNumber) => {
       // update to use firebase id once we have static id working
-      let response = fetch(`http://localhost:3000/jams/${jamId}/${userId}`, {
+      let response = fetch(`http://localhost:3000/jams/${jamId}/${userId}/${pageNumber}`, {
           method: 'DELETE',
           headers: {
               'Accept': 'application/json',

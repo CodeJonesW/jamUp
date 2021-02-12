@@ -57,8 +57,7 @@ const Dashboard = (props) => {
       
       })
      
-      fetch('http://localhost:3000/jams')
-      .then(res => res.json())
+      jamCalls.getAllJams()
       .then(data => {
         setJams(data.allJams)
       })
@@ -72,6 +71,13 @@ const Dashboard = (props) => {
   const [filteredJams, setFilteredJams] = useState("");
 
     useEffect(() => {
+      if(!searchTerm) {
+          jamCalls.getAllJams()
+          .then(data => {
+          setJams(data.allJams)
+        })
+      }
+      
       if(jamData){
         const results = jamData.filter(jam =>
           jam.title.toLowerCase().includes(searchTerm)
@@ -97,7 +103,7 @@ const Dashboard = (props) => {
     // if posted jam changes repopulate state with all previous + new   
         if(postedJam){
           console.log('newjam', postedJam)
-          setJams([...jamData, postedJam])
+          setJams([postedJam, ...jamData])
         }
         
       }, [postedJam]);
@@ -200,7 +206,7 @@ const Dashboard = (props) => {
               let jamIdToDelete = e.currentTarget.dataset.jamid
               let answer = window.confirm("Are you sure you want to delete this jam?")
               if (answer) {
-                jamCalls.deleteJamById(jamIdToDelete, loggedInUserId)
+                jamCalls.deleteJamById(jamIdToDelete, loggedInUserId, pageNumber)
                 .then(data => {
                   setJams(data.allJams)
                 })
@@ -244,13 +250,44 @@ const Dashboard = (props) => {
           })
         }
 
+
+// ------------------------------------------------------
+// Handle Pages of Jams
+        const [pageNumber, setPageNumber] = useState(0)
+
+        const handleNextPage = () => {
+          if(jamData.length === 0) {
+            alert("No more jams")
+            return
+          }
+          console.log("Page number is ", pageNumber, "currently. about to Increase by 1")
+          setPageNumber(pageNumber + 4)
+        }
+
+        const handlePreviousPage = () => {
+          if(pageNumber === 0){
+            alert("No previous jams")
+            return
+          }
+          console.log("Page number is ", pageNumber, "currently. about to Increase by 1")
+          setPageNumber(pageNumber - 4)
+        }
+
+        useEffect(() => {
+          console.log("page increase")
+          jamCalls.getAllJams(pageNumber)
+          .then(data => {
+            setJams(data.allJams)
+          })
+        }, [pageNumber])
+
        
 
     return (
         <div>
             {/* APP BAR AND BUTTONS BELOW  */}
             <PrimarySearchAppBar handleJamSearch={handleJamSearch}></PrimarySearchAppBar>
-            <SideMenu handleShowFavorites={handleShowFavorites} togglePostModal={togglePostModal} handlePost={handlePost}/>
+            <SideMenu handlePreviousPage={handlePreviousPage} handleNextPage={handleNextPage} handleShowFavorites={handleShowFavorites} togglePostModal={togglePostModal} handlePost={handlePost}/>
             {/* ------------------------------------------------------------ */}
             {/* POST NEW JAM MODAL */}
             <Modal

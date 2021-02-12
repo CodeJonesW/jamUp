@@ -11,6 +11,11 @@ const useStyles = makeStyles((theme) => ({
         height: "90%",
         margin: "1%"
     },
+    smallButton: {
+        width: "80%",
+        height: "90%",
+        margin: "1%"
+    },
     buttonDiv: {
         display: "flex",
         flexDirection: "row",
@@ -43,10 +48,13 @@ const SideMenu = (props) => {
                 <Button className={classes.button} onClick={() => props.togglePostModal()} variant="contained">Jam 🎹 </Button>
             </Grid>
             <Grid className={classes.buttonDiv} item>
-                <Button className={classes.button} variant="contained" onClick={() => props.handleShowFavorites()}>Favorites ❤️</Button>
+                <Button className={classes.button} variant="contained" onClick={() => props.handleShowFavorites()}>Favs ❤️</Button>
             </Grid>
             <Grid className={classes.buttonDiv} item>
-                <Button className={classes.button} variant="contained">Attending 🎸</Button>
+                <Button onClick={props.handlePreviousPage}className={classes.smallButton} variant="contained"> ⬅️</Button>
+            </Grid>
+            <Grid className={classes.buttonDiv} item>
+                <Button onClick={props.handleNextPage} className={classes.smallButton} variant="contained"> ➡️</Button>
             </Grid>
             <Grid className={classes.buttonDiv} item>
                 <Button className={classes.button} onClick={auth.signout} variant="contained">Logout☂️</Button>
