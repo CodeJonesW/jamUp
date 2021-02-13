@@ -25,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
         
         
     },
+    heading: {
+        marginLeft: "3%"     
+    },
     outer: {
         display: "flex",
         flexDirection: "row",
@@ -53,13 +56,13 @@ const InfoHeader = (props) => {
         return (
        
             <Grid className={classes.outer} >
-                <Grid  className={classes.buttonDiv} item>
-                    <h1>Recently Added</h1>
+                <Grid className={classes.buttonDiv} item>
+                    <h1 className={classes.heading}>Recently Added</h1>
                     
                 </Grid>
-                <Grid   item>
+                <Grid item>
                     {/* page number is the offset so divide by 4 */}
-                    <p>Page: {props.pageNumber/4}</p>
+                    <p>Page: {props.pageNumber/4 + 1}</p>
                 </Grid>
               
             </Grid>
