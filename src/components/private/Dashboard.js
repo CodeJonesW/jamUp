@@ -242,15 +242,15 @@ const Dashboard = (props) => {
 
 // ---------------------------------------------------
 // Handle Learn More Modal
- // html for learn more modal
+// modal to come
        
         const handleLearnMore = (e, props) => {
           console.log(e.currentTarget)
           console.log(props)
           jamCalls.findUsersWhoFavoritedJam(props.id)
           .then((data) => {
-            console.log("Number of users who like jam", data.usersWhoFavoriteJamId.length)
-             
+            console.log("users who like jam", data.usersWhoFavoriteJamId)
+            alert(`Users who have Favorited this Jam: ${data.usersWhoFavoriteJamId.length}`)
             
           })
         }

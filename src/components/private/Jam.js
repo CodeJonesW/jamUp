@@ -47,7 +47,7 @@ export default function Jam(props) {
         Info: {props.info}
         </Typography>
         <Typography variant="body2" component="p">
-          Location: {props.location}
+          Location/Server: {props.location}
         </Typography>
         <Typography variant="body2" component="p">
           🕰 Time: {renderDate}
