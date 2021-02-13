@@ -34,7 +34,6 @@ export default function Jam(props) {
   let renderDate = dateArray[0] + ", " + dateArray[1] + " " + dateArray[2] + ", " + dateArray[3] + " " + dateArray[4] + " " + dateArray[6][1] + dateArray[7][0] + dateArray[8][0] 
 
 
-
   return (
     <Card className={classes.root} variant="outlined">
       <CardContent>

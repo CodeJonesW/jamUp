@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-
+import InfoHeader from './infoHeader'
 import PrimarySearchAppBar from './PrimaryBar'
 import JamContainer from './JamContainer'
 import SideMenu from './SideMenu'
@@ -61,6 +61,9 @@ const Dashboard = (props) => {
       .then(data => {
         setJams(data.allJams)
       })
+
+
+     
     }, []);
 
 
@@ -191,11 +194,9 @@ const Dashboard = (props) => {
               console.log(e.currentTarget.dataset.jamid)
               jamCalls.postFavoriteJam(likedJamId, loggedInUserId).then((data) => {
                 console.log(data)
-                if(data.msg){
-                  alert(data.msg)
-                } else {
-                  alert("Added to Favorites")
-                }
+                setUserFavoriteJams(data.userFavoriteJams)
+                alert(data.msg)
+
               }) 
             }
 
@@ -222,6 +223,9 @@ const Dashboard = (props) => {
 // FILTER FOR USERS FAVORITES
             const [displayFavorites, toggleDisplayFavorites] = useState(false)
             const [userFavoriteJams, setUserFavoriteJams] = useState(null)
+            useEffect(() => {
+              console.log("User Favorite Jams: ",userFavoriteJams)
+            }, [userFavoriteJams])
 
             const handleShowFavorites = async () => {
               toggleDisplayFavorites(!displayFavorites)
@@ -261,7 +265,7 @@ const Dashboard = (props) => {
             alert("No more jams")
             return
           }
-          console.log("Page number is ", pageNumber, "currently. about to Increase by 1")
+          console.log("Page number is ", pageNumber, "currently. about to Increase by 4")
           setPageNumber(pageNumber + 4)
         }
 
@@ -270,7 +274,7 @@ const Dashboard = (props) => {
             alert("No previous jams")
             return
           }
-          console.log("Page number is ", pageNumber, "currently. about to Increase by 1")
+          console.log("Page number is ", pageNumber, "currently. about to Increase by 4")
           setPageNumber(pageNumber - 4)
         }
 
@@ -290,6 +294,7 @@ const Dashboard = (props) => {
             <PrimarySearchAppBar handleJamSearch={handleJamSearch}></PrimarySearchAppBar>
             <SideMenu handlePreviousPage={handlePreviousPage} handleNextPage={handleNextPage} handleShowFavorites={handleShowFavorites} togglePostModal={togglePostModal} handlePost={handlePost}/>
             {/* ------------------------------------------------------------ */}
+            <InfoHeader displayFavoritesStatus={displayFavorites}/>
             {/* POST NEW JAM MODAL */}
             <Modal
               open={open}
