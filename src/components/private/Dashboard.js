@@ -103,6 +103,7 @@ const Dashboard = (props) => {
     // if posted jam changes repopulate state with all previous + new   
         if(postedJam){
           console.log('newjam', postedJam)
+          jamData.pop()
           setJams([postedJam, ...jamData])
         }
         
@@ -117,7 +118,7 @@ const Dashboard = (props) => {
           alert("Jams must have a date and time")
           return
         }
-        let jamData = {
+        let newJam = {
           title: jamTitleInput.current.value,
           genre: jamGenreInput.current.value,
           info: jamInfoInput.current.value,
@@ -130,16 +131,16 @@ const Dashboard = (props) => {
      
         
         
-          jamCalls.postJam(jamData)
+          jamCalls.postJam(newJam)
           .then((data) => {
             // changing jamDate to hold utc so correct time is displayed immediately after post
-            const d = new Date(jamData.jamDate + "T" + jamData.jamTime);
+            const d = new Date(newJam.jamDate + "T" + newJam.jamTime);
             const newUtcDate = d.toUTCString();
-            jamData.jamDate = newUtcDate
+            newJam.jamDate = newUtcDate
             // grab new jam id and append it to the jam about to be posted to state
-            jamData.id = data.createdJamId
+            newJam.id = data.createdJamId
              // set new jam state
-            setJam(jamData)
+            setJam(newJam)
             // turn off modal
             togglePostModal()
           })
@@ -182,7 +183,7 @@ const Dashboard = (props) => {
 
 
 // ----------------------------------------------------------
-// POST FAVORITE JAM
+// POST/TOGGLE FAVORITE JAM
 
             const postFavoriteJam = (e) => {
               let likedJamId = e.currentTarget.dataset.jamid
