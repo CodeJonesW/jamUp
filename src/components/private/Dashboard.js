@@ -261,7 +261,7 @@ const Dashboard = (props) => {
         const [pageNumber, setPageNumber] = useState(0)
 
         const handleNextPage = () => {
-          if(jamData.length === 0) {
+          if(jamData.length < 4) {
             alert("No more jams")
             return
           }
@@ -280,6 +280,9 @@ const Dashboard = (props) => {
 
         useEffect(() => {
           console.log("page increase")
+
+          // if display favorites is true adjust a new state for 
+          // Favorites Page number and implementpagination
           jamCalls.getAllJams(pageNumber)
           .then(data => {
             setJams(data.allJams)
@@ -292,9 +295,9 @@ const Dashboard = (props) => {
         <div>
             {/* APP BAR AND BUTTONS BELOW  */}
             <PrimarySearchAppBar handleJamSearch={handleJamSearch}></PrimarySearchAppBar>
-            <SideMenu handlePreviousPage={handlePreviousPage} handleNextPage={handleNextPage} handleShowFavorites={handleShowFavorites} togglePostModal={togglePostModal} handlePost={handlePost}/>
+            <SideMenu displayFavorites={displayFavorites} handlePreviousPage={handlePreviousPage} handleNextPage={handleNextPage} handleShowFavorites={handleShowFavorites} togglePostModal={togglePostModal} handlePost={handlePost}/>
             {/* ------------------------------------------------------------ */}
-            <InfoHeader displayFavoritesStatus={displayFavorites}/>
+            <InfoHeader pageNumber={pageNumber} displayFavoritesStatus={displayFavorites}/>
             {/* POST NEW JAM MODAL */}
             <Modal
               open={open}

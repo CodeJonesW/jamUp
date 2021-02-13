@@ -55,8 +55,13 @@ const InfoHeader = (props) => {
             <Grid className={classes.outer} >
                 <Grid  className={classes.buttonDiv} item>
                     <h1>Recently Added</h1>
+                    
                 </Grid>
-                
+                <Grid   item>
+                    {/* page number is the offset so divide by 4 */}
+                    <p>Page: {props.pageNumber/4}</p>
+                </Grid>
+              
             </Grid>
         )
     }
