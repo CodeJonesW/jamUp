@@ -65,7 +65,7 @@ export default function SignIn(props) {
           <button className={classes.input} onClick={handleSubmit} >Submit </button>
           <div className={classes.linkDiv}>
           <Link  className={classes.link} to="/signup"><button className={classes.button}> Click to Sign Up</button></Link>
-          <Link  className={classes.link} to="/about"><button className={classes.button}> Learn about JamUp</button></Link>
+          <Link  className={classes.link} to="/about"><button className={classes.button}> Learn About Us</button></Link>
 
           </div>
 
