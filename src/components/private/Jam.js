@@ -54,7 +54,7 @@ export default function Jam(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button data-jamid={props.id} onClick={(e) => props.handleLearnMore(e, props)} size="small">Learn More</Button>
+        <Button data-jamid={props.id} onClick={(e) => props.handleLearnMore(e, props)} size="small"># of Attendees</Button>
         <Button data-jamid={props.id} onClick={(e) => props.postFavoriteJam(e)} size="small">❤️</Button>
         {props.loggedInUserId === props.userId ? <Button data-jamid={props.id} onClick={(e) => props.handleDeleteJam(e)}size="small">🗑</Button> : null}
       </CardActions>

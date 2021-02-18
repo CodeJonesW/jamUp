@@ -144,9 +144,11 @@ export default function PrimarySearchAppBar(props) {
           aria-haspopup="true"
           color="inherit"
         >
-          <AccountCircle />
+                <MenuItem onClick={handleMenuClose}><Link to="/about">About</Link></MenuItem>
+              
+                <MenuItem onClick={auth.signout} ><Link to="/">Logout</Link></MenuItem>
         </IconButton>
-        <p>Profile</p>
+    
       </MenuItem>
     </Menu>
   );

@@ -48,7 +48,7 @@ const SideMenu = (props) => {
                 <Button className={classes.button} onClick={() => props.togglePostModal()} variant="contained">Jam 🎹 </Button>
             </Grid>
             <Grid className={classes.buttonDiv} item>
-                <Button className={classes.button} variant="contained" onClick={() => props.handleShowFavorites()}>Favs ❤️</Button>
+                { props.displayFavorites ? <Button className={classes.button} variant="contained" onClick={() => props.handleShowFavorites()}>Recent 🎸</Button> : <Button className={classes.button} variant="contained" onClick={() => props.handleShowFavorites()}>Attending Jams 🎸</Button>  }
             </Grid>
             <Grid className={classes.buttonDiv} item>
                🥁

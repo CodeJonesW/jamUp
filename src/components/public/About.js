@@ -130,7 +130,7 @@ export default function About(props) {
          </Card>
 
 
-          <Link  className={classes.link} to="/"><button className={classes.button}> back</button></Link>
+          <Link  className={classes.link} to="/"><Button variant="contained" className={classes.button}> back</Button></Link>
     
 
         </div>

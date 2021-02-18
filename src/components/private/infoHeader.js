@@ -47,7 +47,7 @@ const InfoHeader = (props) => {
        
             <Grid className={classes.outer} >
                 <Grid  className={classes.buttonDiv} item>
-                    <h1>Favorites</h1>
+                    <h1>Attending Jams</h1>
                 </Grid>
                 
             </Grid>

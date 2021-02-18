@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { useAuth } from "../../Hooks/use-auth";
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 import { Row } from 'react-bootstrap';
 
 
@@ -25,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     width: "100%",
+    borderRadius: "1px"
 
   },
   outerDiv: {
@@ -62,10 +64,10 @@ export default function SignIn(props) {
 
           <input className={classes.input} ref={signInEmailInput} placeholder="Email" />
           <input className={classes.input} type="password" ref={signInPasswordInput} placeholder="password" />
-          <button className={classes.input} onClick={handleSubmit} >Submit </button>
+          <Button variant="contained" className={classes.input} onClick={handleSubmit} >Submit </Button>
           <div className={classes.linkDiv}>
-          <Link  className={classes.link} to="/signup"><button className={classes.button}> Click to Sign Up</button></Link>
-          <Link  className={classes.link} to="/about"><button className={classes.button}> Learn About Us</button></Link>
+          <Link  className={classes.link} to="/signup"><Button variant="contained" className={classes.button}> Click to Sign Up</Button></Link>
+          <Link  className={classes.link} to="/about"><Button variant="contained" className={classes.button}> About Us</Button></Link>
 
           </div>
 
