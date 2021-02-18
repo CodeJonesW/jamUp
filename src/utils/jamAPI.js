@@ -8,6 +8,14 @@ const jamCalls = {
       })
       return response
     },
+    getAllJamsForSearch: async (page = 0) => {
+      let response = fetch(`http://localhost:3000/allJams`)
+      .then(res => res.json())
+      .then(data => {
+          return data
+    })
+    return response
+  },
     postJam: async (newJam) => {
         let response = fetch('http://localhost:3000/jams', {
             method: 'POST',

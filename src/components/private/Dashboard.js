@@ -72,23 +72,34 @@ const Dashboard = (props) => {
 
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredJams, setFilteredJams] = useState("");
+  const [jamsToSearch, setJamsToSearch] = useState("");
     // refactor to use DB
-    // useEffect(() => {
-    //   if(!searchTerm) {
-    //       jamCalls.getAllJams()
-    //       .then(data => {
-    //       setJams(data.allJams)
-    //     })
-    //   }
+    useEffect(() => {
+      if(!searchTerm) {
+          jamCalls.getAllJams()
+          .then(data => {
+          setJamsToSearch(false)
+          setFilteredJams(false)
+          setJams(data.allJams)
+          return
+        })
+      } else {
+        jamCalls.getAllJamsForSearch()
+        .then(data => {
+          setJamsToSearch(data.allJams)
 
-    //   if(jamData){
-    //     const results = jamData.filter(jam =>
-    //       jam.title.toLowerCase().includes(searchTerm)
-    //     );
-    //     setFilteredJams(results);
-    //   }
+        });
+
+      if(jamsToSearch){
+        const results = jamsToSearch.filter(jam =>
+          jam.title.toLowerCase().includes(searchTerm)
+        );
+        setFilteredJams(results);
+      }
   
-    // }, [searchTerm]);
+      } 
+
+    }, [searchTerm]);
   
     // this runs onchange in search filtering jams
     const handleJamSearch = (e) => {
