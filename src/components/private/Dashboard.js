@@ -45,7 +45,7 @@ const Dashboard = (props) => {
           if(data.msg){
             auth.signout()
           }
-          // console.log(data)
+          console.log(data)
           // console.log("here", data.userInfo[0].id)
           setUserId(data.userInfo[0].id)
           jamCalls.findUserFavoriteJams(data.userInfo[0].id)
@@ -53,7 +53,7 @@ const Dashboard = (props) => {
           setUserFavoriteJams(userFavoriteJamData.userFavoriteJams)
 
         })
-      }, 2000);
+      }, 4000);
       
       })
      

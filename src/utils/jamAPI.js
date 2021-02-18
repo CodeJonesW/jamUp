@@ -1,7 +1,7 @@
 
 const jamCalls = {
     getAllJams: async (page = 0) => {
-        let response = fetch(`http://localhost:3000/allJams/${page}`)
+        let response = fetch(`https://still-cove-91798.herokuapp.com/allJams/${page}`)
         .then(res => res.json())
         .then(data => {
             return data
@@ -9,7 +9,7 @@ const jamCalls = {
       return response
     },
     getAllJamsForSearch: async (page = 0) => {
-      let response = fetch(`http://localhost:3000/allJams`)
+      let response = fetch(`https://still-cove-91798.herokuapp.com/allJams`)
       .then(res => res.json())
       .then(data => {
           return data
@@ -17,7 +17,7 @@ const jamCalls = {
     return response
   },
     postJam: async (newJam) => {
-        let response = fetch('http://localhost:3000/jams', {
+        let response = fetch('https://still-cove-91798.herokuapp.com/jams', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -32,7 +32,7 @@ const jamCalls = {
       return response
     },
     getUserByUid: async (uid) => {
-      let response = fetch(`http://localhost:3000/users/${uid}`)
+      let response = fetch(`https://still-cove-91798.herokuapp.com/users/${uid}`)
         .then(res => res.json())
         .then(data => {
             // console.log(data)
@@ -41,7 +41,7 @@ const jamCalls = {
       return response
     },
     postUser: async (newUser) => {
-        fetch('http://localhost:3000/users', {
+        fetch('https://still-cove-91798.herokuapp.com/users', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -57,7 +57,7 @@ const jamCalls = {
     },
     postFavoriteJam: (newFavoriteJamId, userId) => {
       // update to use firebase id once we have static id working
-      let response = fetch('http://localhost:3000/favoritejams', {
+      let response = fetch('https://still-cove-91798.herokuapp.com/favoritejams', {
           method: 'POST',
           headers: {
               'Accept': 'application/json',
@@ -74,7 +74,7 @@ const jamCalls = {
   },
       findUserFavoriteJams: async (userId) => {
         // update to use firebase id once we have static id working
-        let response = fetch(`http://localhost:3000/favoritejams/${userId}`, {
+        let response = fetch(`https://still-cove-91798.herokuapp.com/favoritejams/${userId}`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -90,7 +90,7 @@ const jamCalls = {
     },
       findUsersWhoFavoritedJam: async (jamId) => {
         // update to use firebase id once we have static id working
-        let response = fetch(`http://localhost:3000/usersByFavoritedJam/${jamId}`)
+        let response = fetch(`https://still-cove-91798.herokuapp.com/usersByFavoritedJam/${jamId}`)
         .then(res => res.json())
         .then(data => {
             // console.log(data)
@@ -100,7 +100,7 @@ const jamCalls = {
     },
     deleteJamById: async (jamId, userId, pageNumber) => {
       // update to use firebase id once we have static id working
-      let response = fetch(`http://localhost:3000/jams/${jamId}/${userId}/${pageNumber}`, {
+      let response = fetch(`https://still-cove-91798.herokuapp.com/jams/${jamId}/${userId}/${pageNumber}`, {
           method: 'DELETE',
           headers: {
               'Accept': 'application/json',
