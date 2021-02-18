@@ -5,14 +5,10 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
-import Badge from '@material-ui/core/Badge';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { useAuth } from "../../Hooks/use-auth";
 import { Link } from 'react-router-dom';
@@ -144,8 +140,8 @@ export default function PrimarySearchAppBar(props) {
           aria-haspopup="true"
           color="inherit"
         >
-                <MenuItem onClick={handleMenuClose}><Link to="/about">About</Link></MenuItem>
-                <MenuItem onClick={auth.signout} ><Link to="/">Logout</Link></MenuItem>
+                <Link to="/about"><MenuItem onClick={handleMenuClose}>About</MenuItem></Link>
+                <Link to="/"><MenuItem onClick={auth.signout} >Logout</MenuItem></Link>
         </IconButton>
     
       </MenuItem>

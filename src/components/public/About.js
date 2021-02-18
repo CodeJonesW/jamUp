@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { useAuth } from "../../Hooks/use-auth";
+import React from 'react';
+
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -41,7 +41,6 @@ const useStyles = makeStyles((theme) => ({
   outerDiv: {
     marginLeft: '25%',
     width: "50%",
-    alignItems: 'center',
     alignContent: 'center',
     justifyContent: 'center',
     flexDirection: 'column',

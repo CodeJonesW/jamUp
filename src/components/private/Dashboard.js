@@ -45,7 +45,7 @@ const Dashboard = (props) => {
           if(data.msg){
             auth.signout()
           }
-          console.log(data)
+          // console.log(data)
           // console.log("here", data.userInfo[0].id)
           setUserId(data.userInfo[0].id)
           jamCalls.findUserFavoriteJams(data.userInfo[0].id)
@@ -125,7 +125,7 @@ const Dashboard = (props) => {
     useEffect(() => {
     // if posted jam changes repopulate state with all previous + new   
         if(postedJam){
-          console.log('newjam', postedJam)
+          // console.log('newjam', postedJam)
           jamData.pop()
           setJams([postedJam, ...jamData])
         }
@@ -244,7 +244,7 @@ const Dashboard = (props) => {
             const [displayFavorites, toggleDisplayFavorites] = useState(false)
             const [userFavoriteJams, setUserFavoriteJams] = useState(null)
             useEffect(() => {
-              console.log("User Favorite Jams: ",userFavoriteJams)
+              // console.log("User Favorite Jams: ",userFavoriteJams)
             }, [userFavoriteJams])
 
             const handleShowFavorites = async () => {
@@ -270,7 +270,7 @@ const Dashboard = (props) => {
           jamCalls.findUsersWhoFavoritedJam(props.id)
           .then((data) => {
             console.log("users who like jam", data.usersWhoFavoriteJamId)
-            alert(`Currently, ${data.usersWhoFavoriteJamId.length + 1} musicians are attending this jam`)
+            alert(`Currently, ${data.usersWhoFavoriteJamId.length} musicians are attending this jam`)
             
           })
         }
@@ -299,7 +299,7 @@ const Dashboard = (props) => {
         }
 
         useEffect(() => {
-          console.log("page increase")
+          // console.log("page increase")
 
           // if display favorites is true adjust a new state for 
           // Favorites Page number and implementpagination

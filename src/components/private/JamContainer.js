@@ -1,7 +1,6 @@
 import React from 'react'
 import Jam from './Jam.js'
 import Grid from '@material-ui/core/Grid';
-import { useAuth } from "../../Hooks/use-auth";
 import { makeStyles } from '@material-ui/core/styles';
 
 
@@ -17,7 +16,7 @@ const useStyles = makeStyles({
 
 const JamContainer = (props) => {
 const classes = useStyles();
-const auth = useAuth();
+
 if(props.filteredJams){
     return (
         <Grid className={classes.jamContainer} container fluid="true">

@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+
 import Grid from '@material-ui/core/Grid';
-import { useAuth } from "../../Hooks/use-auth";
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -39,7 +39,6 @@ const useStyles = makeStyles((theme) => ({
 
 
 const InfoHeader = (props) => {
-    const auth = useAuth();
     const classes = useStyles();
 
     if(props.displayFavoritesStatus && props.displayFavoritesStatus) {

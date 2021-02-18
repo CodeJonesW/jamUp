@@ -3,7 +3,7 @@ import { useAuth } from "../../Hooks/use-auth";
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import { Row } from 'react-bootstrap';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -32,7 +32,6 @@ const useStyles = makeStyles((theme) => ({
   outerDiv: {
     marginTop: '10%',
     width: "100%",
-    alignItems: 'center',
     alignContent: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
@@ -55,7 +54,7 @@ export default function SignIn(props) {
   const signInPasswordInput = useRef(null);
 
   const handleSubmit = () => {
-    const user = auth.signin(signInEmailInput.current.value, signInPasswordInput.current.value)
+    auth.signin(signInEmailInput.current.value, signInPasswordInput.current.value)
   }
   return (
     <div className={classes.body}>

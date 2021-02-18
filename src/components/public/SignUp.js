@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useAuth } from "../../Hooks/use-auth";
 import { Link } from 'react-router-dom';
@@ -28,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
     alignContent: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
-    alignItems: 'center',
     display: 'flex'
   },
 }));
