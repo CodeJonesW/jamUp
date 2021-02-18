@@ -75,6 +75,25 @@ export default function About(props) {
           <h1 className={classes.h1} > About Us</h1>
           <Card className={classes.root} variant="outlined">
             <CardContent>
+                <Typography variant="h5" className={classes.pos} color="textSecondary">
+                Welcome to JamUp!
+                </Typography>
+                <Typography variant="body2" component="p">
+                - Our goal is to connect musicians online by cordinating meeting times on various applications so we can all practice remotely.
+                </Typography>
+                <Typography variant="body2" component="p">
+                - Jams are stored in UTC time and converted to your local time for everyone's convenience.
+                </Typography>
+                <Typography variant="body2" component="p" >
+                - Currently our favorite application for online jamming is called <a href="https://jamulus.io/">Jamulus</a>
+                </Typography>
+            </CardContent>
+            <CardActions>
+               
+            </CardActions>
+         </Card>
+          <Card className={classes.root} variant="outlined">
+            <CardContent>
                 <Typography className={classes.title} color="textSecondary" gutterBottom>
                 Genre: Funk
                 </Typography>
@@ -95,25 +114,7 @@ export default function About(props) {
                
             </CardActions>
          </Card>
-         <Card className={classes.root} variant="outlined">
-            <CardContent>
-                <Typography variant="h5" className={classes.pos} color="textSecondary">
-                Welcome to JamUp!
-                </Typography>
-                <Typography variant="body2" component="p">
-                - Our goal is to connect musicians online by cordinating meeting times on various applications so we can all practice remotely.
-                </Typography>
-                <Typography variant="body2" component="p">
-                - Jams are stored in UTC time and converted to your local time for everyone's convenience.
-                </Typography>
-                <Typography variant="body2" component="p" >
-                - Currently our favorite application for online jamming is called <a href="https://jamulus.io/">Jamulus</a>
-                </Typography>
-            </CardContent>
-            <CardActions>
-               
-            </CardActions>
-         </Card>
+       
          <Card className={classes.root} variant="outlined">
             <CardContent>
                 <Typography variant="h5" className={classes.pos} color="textSecondary">
