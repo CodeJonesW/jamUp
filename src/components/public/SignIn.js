@@ -65,7 +65,7 @@ export default function SignIn(props) {
           <input className={classes.input} type="password" ref={signInPasswordInput} placeholder="password" />
           <Button variant="contained" className={classes.input} onClick={handleSubmit} >Submit </Button>
           <div className={classes.linkDiv}>
-          <Link  className={classes.link} to="/signup"><Button variant="contained" className={classes.button}> Click to Sign Up</Button></Link>
+          <Link  className={classes.link} to="/signup"><Button variant="contained" className={classes.button}> Sign Up</Button></Link>
           <Link  className={classes.link} to="/about"><Button variant="contained" className={classes.button}> About Us</Button></Link>
 
           </div>
