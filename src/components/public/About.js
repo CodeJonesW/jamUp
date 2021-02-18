@@ -76,19 +76,19 @@ export default function About(props) {
           <Card className={classes.root} variant="outlined">
             <CardContent>
                 <Typography className={classes.title} color="textSecondary" gutterBottom>
-                Genre:
+                Genre: Funk
                 </Typography>
                 <Typography variant="h5" component="h2">
-                    Title:
+                    Title: Late Night Groove
                 </Typography>
                 <Typography className={classes.pos} color="textSecondary">
-                Info:
+                Info: All instruments well come. 
                 </Typography>
                 <Typography variant="body2" component="p">
-                Location/Server: 
+                Location/Server: Server Name and Connection Details
                 </Typography>
                 <Typography variant="body2" component="p">
-                🕰 Time: =
+                🕰 Time: = Local Time
                 </Typography>
             </CardContent>
             <CardActions>
@@ -97,14 +97,17 @@ export default function About(props) {
          </Card>
          <Card className={classes.root} variant="outlined">
             <CardContent>
-                <Typography className={classes.pos} color="textSecondary">
-                Info:
+                <Typography variant="h5" className={classes.pos} color="textSecondary">
+                Welcome to JamUp!
                 </Typography>
                 <Typography variant="body2" component="p">
-               - Stuff
+                - Our goal is to connect musicians online by cordinating meeting times on various applications so we can all practice remotely.
                 </Typography>
                 <Typography variant="body2" component="p">
-                - Stuff
+                - Jams are stored in UTC time and converted to your local time for everyone's convenience.
+                </Typography>
+                <Typography variant="body2" component="p" >
+                - Currently our favorite application for online jamming is called <a href="https://jamulus.io/">Jamulus</a>
                 </Typography>
             </CardContent>
             <CardActions>
@@ -113,14 +116,17 @@ export default function About(props) {
          </Card>
          <Card className={classes.root} variant="outlined">
             <CardContent>
-                <Typography className={classes.pos} color="textSecondary">
-                Info:
+                <Typography variant="h5" className={classes.pos} color="textSecondary">
+                Creating a Jam
                 </Typography>
                 <Typography variant="body2" component="p">
-               - Stuff
+               - When creating a jam, providing the correct CONNECTION DETAILS are very important for jams to actually happen!
                 </Typography>
                 <Typography variant="body2" component="p">
-                - Stuff
+                - When using Jamulus make sure to include the server name, jammulus genre, and time. If you are using another application for jamming, list it and the necessary connection details.
+                </Typography>
+                <Typography variant="body2" component="p">
+                - Make sure to sign up for jams you create to tell others you are also attending : )
                 </Typography>
             </CardContent>
             <CardActions>
