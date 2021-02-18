@@ -54,10 +54,10 @@ const SideMenu = (props) => {
                🥁
             </Grid>
             <Grid className={classes.buttonDiv} item>
-                <Button  onClick={props.handlePreviousPage}className={classes.smallButton} variant="contained"> ⬅️</Button>
+                {props.displayFavorites ? null : <Button  onClick={props.handlePreviousPage}className={classes.smallButton} variant="contained"> ⬅️</Button>}
             </Grid>
             <Grid className={classes.buttonDiv} item>
-                <Button onClick={props.handleNextPage} className={classes.smallButton} variant="contained"> ➡️</Button>
+                {props.displayFavorites ? null : <Button onClick={props.handleNextPage} className={classes.smallButton} variant="contained"> ➡️</Button>}
             </Grid>
           
             
