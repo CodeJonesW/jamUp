@@ -145,7 +145,6 @@ export default function PrimarySearchAppBar(props) {
           color="inherit"
         >
                 <MenuItem onClick={handleMenuClose}><Link to="/about">About</Link></MenuItem>
-              
                 <MenuItem onClick={auth.signout} ><Link to="/">Logout</Link></MenuItem>
         </IconButton>
     

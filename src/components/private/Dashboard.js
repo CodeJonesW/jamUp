@@ -270,7 +270,7 @@ const Dashboard = (props) => {
           jamCalls.findUsersWhoFavoritedJam(props.id)
           .then((data) => {
             console.log("users who like jam", data.usersWhoFavoriteJamId)
-            alert(`Currently, ${data.usersWhoFavoriteJamId.length} musicians are attending this jam`)
+            alert(`Currently, ${data.usersWhoFavoriteJamId.length + 1} musicians are attending this jam`)
             
           })
         }
