@@ -75,6 +75,9 @@ const Dashboard = (props) => {
   const [jamsToSearch, setJamsToSearch] = useState("");
     // refactor to use DB
     useEffect(() => {
+      // if the search term does not exist grab the jams by page via get all jams
+      // set the two states involving search to false so that correct data renders
+      // and return
       if(!searchTerm) {
           jamCalls.getAllJams()
           .then(data => {
@@ -84,17 +87,23 @@ const Dashboard = (props) => {
           return
         })
       } else {
+        // otherwise grab all the grabs from the db and set to state
+        // jams to search
         jamCalls.getAllJamsForSearch()
         .then(data => {
           setJamsToSearch(data.allJams)
 
         });
 
+      // if this state has been populated there is a current search term
       if(jamsToSearch){
+        // filter results
         const results = jamsToSearch.filter(jam =>
           jam.title.toLowerCase().includes(searchTerm)
         );
         setFilteredJams(results);
+        // the existence of this ^ state will trigger a rendering of different data in the 
+        // jam container
       }
   
       } 
