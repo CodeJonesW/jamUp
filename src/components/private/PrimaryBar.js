@@ -15,6 +15,7 @@ import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import { useAuth } from "../../Hooks/use-auth";
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -118,8 +119,9 @@ export default function PrimarySearchAppBar(props) {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>My Profile</MenuItem>
-      <MenuItem onClick={auth.signout} >Logout</MenuItem>
+      <Link to="/about"><MenuItem onClick={handleMenuClose}>About</MenuItem></Link>
+      <Link to="/"><MenuItem onClick={auth.signout} >Logout</MenuItem></Link>
+      
     </Menu>
   );
 
