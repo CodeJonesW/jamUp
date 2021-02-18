@@ -82,7 +82,7 @@ export default function About(props) {
                     Title: Late Night Groove
                 </Typography>
                 <Typography className={classes.pos} color="textSecondary">
-                Info: All instruments well come. 
+                Info: All instruments welcome! 
                 </Typography>
                 <Typography variant="body2" component="p">
                 Location/Server: Server Name and Connection Details
@@ -127,6 +127,9 @@ export default function About(props) {
                 </Typography>
                 <Typography variant="body2" component="p">
                 - Make sure to sign up for jams you create to tell others you are also attending : )
+                </Typography>
+                <Typography variant="body2" component="p">
+                - JamUp is an ongoing project. We look forward to improving upon ther initial design. If you are interested in helping us grow, join us in our <a href="https://discord.gg/xhPZPNYzSJ">Discord</a>
                 </Typography>
             </CardContent>
             <CardActions>

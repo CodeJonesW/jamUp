@@ -115,7 +115,7 @@ export default function PrimarySearchAppBar(props) {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <Link to="/about"><MenuItem onClick={handleMenuClose}>About</MenuItem></Link>
+      <Link to="/about"><MenuItem onClick={handleMenuClose}>About/Help</MenuItem></Link>
       <Link to="/"><MenuItem onClick={auth.signout} >Logout</MenuItem></Link>
       
     </Menu>
@@ -140,7 +140,7 @@ export default function PrimarySearchAppBar(props) {
           aria-haspopup="true"
           color="inherit"
         >
-                <Link to="/about"><MenuItem onClick={handleMenuClose}>About</MenuItem></Link>
+                <Link to="/about"><MenuItem onClick={handleMenuClose}>About/Help</MenuItem></Link>
                 <Link to="/"><MenuItem onClick={auth.signout} >Logout</MenuItem></Link>
         </IconButton>
     
