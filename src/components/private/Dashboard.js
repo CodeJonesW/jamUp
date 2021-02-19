@@ -53,7 +53,7 @@ const Dashboard = (props) => {
           setUserFavoriteJams(userFavoriteJamData.userFavoriteJams)
 
         })
-      }, 5000);
+      }, 2000);
       
       })
      

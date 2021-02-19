@@ -47,7 +47,7 @@ export default function SignUp() {
     }
     let password = signUpPasswordInput.current.value
     let user = await auth.signup(signUpEmailInput.current.value, password)
-    let newDbUser = await jamCalls.postUser({"email": user.email, "firebase": user.uid})
+    jamCalls.postUser({"email": user.email, "firebase": user.uid})
   }
 
   return (
