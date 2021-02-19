@@ -53,8 +53,8 @@ export default function SignIn(props) {
   const signInEmailInput = useRef(null);
   const signInPasswordInput = useRef(null);
 
-  const handleSubmit = () => {
-    auth.signin(signInEmailInput.current.value, signInPasswordInput.current.value)
+  const handleSubmit = async () => {
+    let newUser = await auth.signin(signInEmailInput.current.value, signInPasswordInput.current.value)
   }
   return (
     <div className={classes.body}>
