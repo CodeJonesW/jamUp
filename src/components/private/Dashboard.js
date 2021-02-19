@@ -39,13 +39,13 @@ const Dashboard = (props) => {
       // using set timeout to allow time for firebase and my db to create user so that 
       // we can grab the user by uid
       setTimeout(function(){
-        console.log(auth.user)
+        // console.log(auth.user)
         jamCalls.getUserByUid(auth.user.uid)
         .then((data) => {
           if(data.msg){
             auth.signout()
           }
-          console.log(data)
+          // console.log(data)
           // console.log("here", data.userInfo[0].id)
           setUserId(data.userInfo[0].id)
           jamCalls.findUserFavoriteJams(data.userInfo[0].id)
