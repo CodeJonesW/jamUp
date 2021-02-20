@@ -5,7 +5,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
+import {isSafari} from 'react-device-detect';
 const useStyles = makeStyles({
   root: {
     minWidth: "100%",
@@ -26,10 +26,17 @@ const useStyles = makeStyles({
 export default function Jam(props) {
   const classes = useStyles();
   // console.log(props.jamDate)
-
+  let renderDate
   const date = new Date(props.jamDate);
+  
   let dateArray = date.toString().split(" ")
-  let renderDate = dateArray[0] + ", " + dateArray[1] + " " + dateArray[2] + ", " + dateArray[3] + " " + dateArray[4] + " " + dateArray[6][1] + dateArray[7][0] + dateArray[8][0] 
+  console.log(dateArray)
+  if(isSafari){
+    renderDate = dateArray[0] + ", " + dateArray[1] + " " + dateArray[2] + ", " + dateArray[3] + " " + dateArray[4] + " " + dateArray[6] 
+  } else {
+    renderDate = dateArray[0] + ", " + dateArray[1] + " " + dateArray[2] + ", " + dateArray[3] + " " + dateArray[4] + " " + dateArray[6][1] + dateArray[7][0] + dateArray[8][0] 
+  }
+
 
 
   return (

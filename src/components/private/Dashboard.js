@@ -36,24 +36,31 @@ const Dashboard = (props) => {
   // load in all jams on page
   const [jamData, setJams] = useState("");
     useEffect( async () => {
-      await timeout(2000);
-        // console.log(auth.user)
-        jamCalls.getUserByUid(auth.user.uid)
-        .then((data) => {
-          if(data.msg){
-            console.log(data)
-            auth.signout()
-            return
-          }
-          console.log(data)
-          console.log("here", data.userInfo[0].id)
-          setUserId(data.userInfo[0].id)
-          jamCalls.findUserFavoriteJams(data.userInfo[0].id)
-          .then((userFavoriteJamData) => {
-          setUserFavoriteJams(userFavoriteJamData.userFavoriteJams)
 
+      async function fetchData() {
+        // await for DB to process
+        await timeout(3000);
+                // console.log(auth.user)
+          jamCalls.getUserByUid(auth.user.uid)
+          .then((data) => {
+            if(data.msg){
+              console.log(data)
+              auth.signout()
+              return
+            }
+            console.log(data)
+            console.log("here", data.userInfo[0].id)
+            setUserId(data.userInfo[0].id)
+            jamCalls.findUserFavoriteJams(data.userInfo[0].id)
+            .then((userFavoriteJamData) => {
+            setUserFavoriteJams(userFavoriteJamData.userFavoriteJams)
+  
+          })
         })
-      })
+      }
+
+   
+
      
       jamCalls.getAllJams()
       .then(data => {
