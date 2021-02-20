@@ -130,7 +130,7 @@ export default function About(props) {
                 - Make sure to sign up for jams you create to tell others you are also attending : )
                 </Typography>
                 <Typography variant="body2" component="p">
-                - JamUp is an ongoing project. We look forward to improving upon ther initial design. If you are interested in helping us grow, join us in our <a href="https://discord.gg/xhPZPNYzSJ">Discord</a>
+                - JamUp is an ongoing project. We look forward to improving upon ther initial design. If you are interested in helping us grow, join us in our <a target="_blank" href="https://discord.gg/xhPZPNYzSJ">Discord</a>
                 </Typography>
             </CardContent>
             <CardActions>
