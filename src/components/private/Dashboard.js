@@ -35,26 +35,24 @@ const Dashboard = (props) => {
 
   // load in all jams on page
   const [jamData, setJams] = useState("");
-    useEffect( () => {
-      // using set timeout to allow time for firebase and my db to create user so that 
-      // we can grab the user by uid
-      setTimeout(function(){
+    useEffect( async () => {
+      await timeout(2000);
         // console.log(auth.user)
         jamCalls.getUserByUid(auth.user.uid)
         .then((data) => {
           if(data.msg){
+            console.log(data)
             auth.signout()
+            return
           }
-          // console.log(data)
-          // console.log("here", data.userInfo[0].id)
+          console.log(data)
+          console.log("here", data.userInfo[0].id)
           setUserId(data.userInfo[0].id)
           jamCalls.findUserFavoriteJams(data.userInfo[0].id)
           .then((userFavoriteJamData) => {
           setUserFavoriteJams(userFavoriteJamData.userFavoriteJams)
 
         })
-      }, 2000);
-      
       })
      
       jamCalls.getAllJams()
@@ -65,6 +63,10 @@ const Dashboard = (props) => {
 
      
     }, []);
+
+    function timeout(delay) {
+      return new Promise( res => setTimeout(res, delay) );
+  }
 
 
 // --------------------------------------------------

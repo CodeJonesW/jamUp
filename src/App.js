@@ -11,7 +11,9 @@ import Profile from './components/private/Profile'
 import About from './components/public/About.js'
 function App() {
   
-  const auth = useAuth()
+  const auth = useAuth();
+
+  // console.log('yoo==>>', auth)
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
@@ -20,19 +22,17 @@ function App() {
                 <About /> 
               </Route>
               <Route path="/signup">
-                {auth.user ? <Redirect to="/dashboard" /> : <SignUp />}
+                {auth.user !== null ? auth.user ? <Redirect to="/dashboard" /> : <SignUp /> : ''}
               </Route>
               <Route path="/dashboard">
-                {auth.user ? <Dashboard /> : <Redirect to="/" />}
+                {auth.user !== null ? auth.user ? <Dashboard /> : <Redirect to="/" /> : ''}
               </Route>
               <Route path="/profile">
-                <Profile /> 
+                {auth.user !== null ? auth.user ? <Profile />  : <Redirect to="/" /> : ''} 
               </Route>
-              
               <Route exact path="/">
-                {auth.user ? <Redirect to="/dashboard" /> : <SignIn />}
+                {auth.user !== null ? auth.user ? <Redirect to="/dashboard" /> : <SignIn /> : ''}
               </Route>
-
           </Switch>
           
     </ThemeProvider>

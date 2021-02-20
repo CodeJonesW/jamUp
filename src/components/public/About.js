@@ -124,7 +124,7 @@ export default function About(props) {
                - When creating a jam, providing the correct CONNECTION DETAILS are very important for jams to actually happen!
                 </Typography>
                 <Typography variant="body2" component="p">
-                - When using Jamulus make sure to include the server name, jammulus genre, and time. If you are using another application for jamming, list it and the necessary connection details.
+                - When using Jamulus make sure to include the SERVER NAME, LIST GENRE, and TIME. If you are using another application for jamming, list it and the necessary connection details.
                 </Typography>
                 <Typography variant="body2" component="p">
                 - Make sure to sign up for jams you create to tell others you are also attending : )
