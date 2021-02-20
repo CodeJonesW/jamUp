@@ -48,8 +48,8 @@ const Dashboard = (props) => {
               auth.signout()
               return
             }
-            console.log(data)
-            console.log("here", data.userInfo[0].id)
+            // console.log(data)
+            // console.log("here", data.userInfo[0].id)
             setUserId(data.userInfo[0].id)
             jamCalls.findUserFavoriteJams(data.userInfo[0].id)
             .then((userFavoriteJamData) => {
