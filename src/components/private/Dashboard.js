@@ -59,7 +59,7 @@ const Dashboard = (props) => {
         })
       }
 
-   
+      fetchData()
 
      
       jamCalls.getAllJams()
@@ -294,7 +294,7 @@ const Dashboard = (props) => {
             alert("No more jams")
             return
           }
-          console.log("Page number is ", pageNumber, "currently. about to Increase by 4")
+          // console.log("Page number is ", pageNumber, "currently. about to Increase by 4")
           setPageNumber(pageNumber + 4)
         }
 
@@ -303,7 +303,7 @@ const Dashboard = (props) => {
             alert("No previous jams")
             return
           }
-          console.log("Page number is ", pageNumber, "currently. about to Increase by 4")
+          // console.log("Page number is ", pageNumber, "currently. about to Increase by 4")
           setPageNumber(pageNumber - 4)
         }
 
