@@ -85,7 +85,7 @@ export default function About(props) {
                 - Jams are stored in UTC time and converted to your local time for everyone's convenience.
                 </Typography>
                 <Typography variant="body2" component="p" >
-                - Currently our favorite application for online jamming is called <a href="https://jamulus.io/">Jamulus</a>
+                - Currently our favorite application for online jamming is called <a target="_blank" href="https://jamulus.io/">Jamulus</a>
                 </Typography>
             </CardContent>
             <CardActions>
