@@ -40,7 +40,7 @@ const Dashboard = (props) => {
       async function fetchData() {
         // await for DB to process
         await timeout(3000);
-                // console.log(auth.user)
+        // console.log(auth.user)
           jamCalls.getUserByUid(auth.user.uid)
           .then((data) => {
             if(data.msg){
@@ -48,11 +48,11 @@ const Dashboard = (props) => {
               auth.signout()
               return
             }
-            // console.log(data)
-            // console.log("here", data.userInfo[0].id)
+
             setUserId(data.userInfo[0].id)
             jamCalls.findUserFavoriteJams(data.userInfo[0].id)
             .then((userFavoriteJamData) => {
+              // console.log(userFavoriteJamData.userFavoriteJams)
             setUserFavoriteJams(userFavoriteJamData.userFavoriteJams)
   
           })
@@ -135,7 +135,6 @@ const Dashboard = (props) => {
     // if posted jam changes repopulate state with all previous + new   
         if(postedJam){
           // console.log('newjam', postedJam)
-          jamData.pop()
           setJams([postedJam, ...jamData])
         }
         
@@ -150,6 +149,7 @@ const Dashboard = (props) => {
           alert("Jams must have a date and time")
           return
         }
+        console.log(loggedInUserId)
         let newJam = {
           title: jamTitleInput.current.value,
           genre: jamGenreInput.current.value,
@@ -165,6 +165,7 @@ const Dashboard = (props) => {
         
           jamCalls.postJam(newJam)
           .then((data) => {
+            console.log(data)
             // changing jamDate to hold utc so correct time is displayed immediately after post
             const d = new Date(newJam.jamDate + "T" + newJam.jamTime);
             const newUtcDate = d.toUTCString();
@@ -219,8 +220,8 @@ const Dashboard = (props) => {
 
             const postFavoriteJam = (e) => {
               let likedJamId = e.currentTarget.dataset.jamid
-              console.log(e.currentTarget)
-              console.log(e.currentTarget.dataset.jamid)
+              // console.log(e.currentTarget)
+              // console.log(e.currentTarget.dataset.jamid)
               jamCalls.postFavoriteJam(likedJamId, loggedInUserId).then((data) => {
                 console.log(data)
                 setUserFavoriteJams(data.userFavoriteJams)
@@ -234,11 +235,14 @@ const Dashboard = (props) => {
 // Delete User's Jam
 
             const handleDeleteJam = (e) => {
+              console.log(e.currentTarget)
               let jamIdToDelete = e.currentTarget.dataset.jamid
+              console.log(jamIdToDelete)
               let answer = window.confirm("Are you sure you want to delete this jam?")
               if (answer) {
                 jamCalls.deleteJamById(jamIdToDelete, loggedInUserId, pageNumber)
                 .then(data => {
+                  // console.log(data)
                   setJams(data.allJams)
                 })
                 
@@ -278,6 +282,7 @@ const Dashboard = (props) => {
           console.log(props)
           jamCalls.findUsersWhoFavoritedJam(props.id)
           .then((data) => {
+            console.log(data)
             console.log("users who like jam", data.usersWhoFavoriteJamId)
             alert(`Currently, ${data.usersWhoFavoriteJamId.length} musicians are attending this jam`)
             

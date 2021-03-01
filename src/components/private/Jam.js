@@ -28,7 +28,8 @@ export default function Jam(props) {
   // console.log(props.jamDate)
   let renderDate
   const date = new Date(props.jamDate);
-  
+  // console.log(props)
+  // console.log(date)
   let dateArray = date.toString().split(" ")
   // console.log(dateArray)
   if(isSafari){
