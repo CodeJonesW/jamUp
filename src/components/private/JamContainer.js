@@ -16,7 +16,7 @@ const useStyles = makeStyles({
 
 const JamContainer = (props) => {
 const classes = useStyles();
-
+// console.log(props)
 if(props.filteredJams){
     return (
         <Grid className={classes.jamContainer} container fluid="true">

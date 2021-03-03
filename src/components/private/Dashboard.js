@@ -43,16 +43,16 @@ const Dashboard = (props) => {
         // console.log(auth.user)
           jamCalls.getUserByUid(auth.user.uid)
           .then((data) => {
+            // console.log("HERE", data)
             if(data.msg){
-              console.log(data)
               auth.signout()
               return
             }
-
+            // console.log(loggedInUserId)
             setUserId(data.userInfo[0].id)
             jamCalls.findUserFavoriteJams(data.userInfo[0].id)
             .then((userFavoriteJamData) => {
-              // console.log(userFavoriteJamData.userFavoriteJams)
+              // console.log(userFavoriteJamData)
             setUserFavoriteJams(userFavoriteJamData.userFavoriteJams)
   
           })
@@ -149,7 +149,7 @@ const Dashboard = (props) => {
           alert("Jams must have a date and time")
           return
         }
-        console.log(loggedInUserId)
+        // console.log(loggedInUserId)
         let newJam = {
           title: jamTitleInput.current.value,
           genre: jamGenreInput.current.value,
@@ -165,7 +165,7 @@ const Dashboard = (props) => {
         
           jamCalls.postJam(newJam)
           .then((data) => {
-            console.log(data)
+            // console.log(data)
             // changing jamDate to hold utc so correct time is displayed immediately after post
             const d = new Date(newJam.jamDate + "T" + newJam.jamTime);
             const newUtcDate = d.toUTCString();
@@ -235,9 +235,9 @@ const Dashboard = (props) => {
 // Delete User's Jam
 
             const handleDeleteJam = (e) => {
-              console.log(e.currentTarget)
+              // console.log(e.currentTarget)
               let jamIdToDelete = e.currentTarget.dataset.jamid
-              console.log(jamIdToDelete)
+              // console.log(jamIdToDelete)
               let answer = window.confirm("Are you sure you want to delete this jam?")
               if (answer) {
                 jamCalls.deleteJamById(jamIdToDelete, loggedInUserId, pageNumber)
@@ -255,7 +255,7 @@ const Dashboard = (props) => {
 // --------------------------------------------------------------
 // FILTER FOR USERS FAVORITES
             const [displayFavorites, toggleDisplayFavorites] = useState(false)
-            const [userFavoriteJams, setUserFavoriteJams] = useState(null)
+            const [userFavoriteJams, setUserFavoriteJams] = useState([])
             useEffect(() => {
               // console.log("User Favorite Jams: ",userFavoriteJams)
             }, [userFavoriteJams])
@@ -263,13 +263,16 @@ const Dashboard = (props) => {
             const handleShowFavorites = async () => {
               toggleDisplayFavorites(!displayFavorites)
               let data = await jamCalls.findUserFavoriteJams(loggedInUserId)
-                // console.log(data, displayFavorites)
+             
+                console.log(data, displayFavorites)
                 setUserFavoriteJams(data.userFavoriteJams)
+
                 
             }
 
             useEffect(() => {
               // console.log(displayFavorites)
+              // console.log(userFavoriteJams)
             }, [displayFavorites]);
 
 
@@ -278,12 +281,12 @@ const Dashboard = (props) => {
 // modal to come
        
         const handleLearnMore = (e, props) => {
-          console.log(e.currentTarget)
-          console.log(props)
+          // console.log(e.currentTarget)
+          // console.log(props)
           jamCalls.findUsersWhoFavoritedJam(props.id)
           .then((data) => {
-            console.log(data)
-            console.log("users who like jam", data.usersWhoFavoriteJamId)
+            // console.log(data)
+            // console.log("users who like jam", data.usersWhoFavoriteJamId)
             alert(`Currently, ${data.usersWhoFavoriteJamId.length} musicians are attending this jam`)
             
           })
