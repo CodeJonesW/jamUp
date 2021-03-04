@@ -95,10 +95,10 @@ export default function About(props) {
           <Card className={classes.root} variant="outlined">
             <CardContent>
                 <Typography className={classes.title} color="textSecondary" gutterBottom>
-                Genre: Funk
+                Genre: Example Genre
                 </Typography>
                 <Typography variant="h5" component="h2">
-                    Title: Late Night Groove
+                    Title: Example Jam
                 </Typography>
                 <Typography className={classes.pos} color="textSecondary">
                 Info: All instruments welcome! 

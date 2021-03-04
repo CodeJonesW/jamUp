@@ -52,7 +52,7 @@ const Dashboard = (props) => {
             setUserId(data.userInfo[0].id)
             jamCalls.findUserFavoriteJams(data.userInfo[0].id)
             .then((userFavoriteJamData) => {
-              // console.log(userFavoriteJamData)
+              // console.log("HERE", userFavoriteJamData)
             setUserFavoriteJams(userFavoriteJamData.userFavoriteJams)
   
           })
@@ -222,6 +222,7 @@ const Dashboard = (props) => {
               let likedJamId = e.currentTarget.dataset.jamid
               // console.log(e.currentTarget)
               // console.log(e.currentTarget.dataset.jamid)
+              // console.log(loggedInUserId)
               jamCalls.postFavoriteJam(likedJamId, loggedInUserId).then((data) => {
                 console.log(data)
                 setUserFavoriteJams(data.userFavoriteJams)
@@ -264,7 +265,7 @@ const Dashboard = (props) => {
               toggleDisplayFavorites(!displayFavorites)
               let data = await jamCalls.findUserFavoriteJams(loggedInUserId)
              
-                console.log(data, displayFavorites)
+                // console.log(data, displayFavorites)
                 setUserFavoriteJams(data.userFavoriteJams)
 
                 
