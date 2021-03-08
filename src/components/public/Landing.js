@@ -8,6 +8,8 @@ import jamulus from "../../assets/img/jamulus.png"
 import discord from "../../assets/img/discord.png"
 import bluegrass from "../../assets/img/bluegrass_band.png"
 import facebook from "../../assets/img/facebook.png"
+
+
 const useStyles = makeStyles((theme) => ({
   body: {
     width: "100%",
@@ -132,7 +134,7 @@ export default function Landing(props) {
     <div className={classes.body}>
         <section className={classes.section}> 
             <header className={classes.header}>
-                <a  href="#"><img alt="jamUp logo" className={classes.logo} src={banjo}></img></a>
+                <a href="#"><img alt="jamUp logo" className={classes.logo} src={banjo}></img></a>
                 <ul className={classes.headerUl}>
                     <li className={classes.headerUlLi} ><Link to="/about" className={classes.headerUlLiA}>About</Link></li>
                     <li className={classes.headerUlLi}><Link to="/signin" className={classes.headerUlLiA}>SignIn</Link></li>
@@ -156,7 +158,7 @@ export default function Landing(props) {
             <ul className={classes.sci}>
                 <li className={classes.sciLi}><a target="_blank" href="https://jamulus.io/" className={classes.sciLiA}><img alt="link to jamulus application website" className={classes.sciImage} src={jamulus}></img></a></li>
                 <li className={classes.sciLi}><a target="_blank" href="https://discord.gg/xhPZPNYzSJ" className={classes.sciLiA}><img alt="link to jamUp discord server" className={classes.sciImage} src={discord} ></img></a></li>
-                <li className={classes.sciLi}><a target="_blank" href="https://www.facebook.com/" className={classes.sciLiA}><img alt="link to jamUp facebook" className={classes.sciImage} src={facebook}></img></a></li>
+                <li className={classes.sciLi}><a target="#" className={classes.sciLiA}><img alt="link to jamUp facebook" className={classes.sciImage} src={facebook}></img></a></li>
             </ul>
         </section>  
 
