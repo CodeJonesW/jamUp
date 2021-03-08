@@ -6,6 +6,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import Dashboard from './components/private/Dashboard'
 import SignIn from './components/public/SignIn';
 import SignUp from './components/public/SignUp';
+import Landing from './components/public/Landing'
 import { useAuth } from "./Hooks/use-auth";
 import Profile from './components/private/Profile'
 import About from './components/public/About.js'
@@ -20,6 +21,9 @@ function App() {
           <Switch>
               <Route path="/about">
                 <About /> 
+              </Route>
+              <Route path="/welcome">
+                <Landing /> 
               </Route>
               <Route path="/signup">
                 {auth.user !== null ? auth.user ? <Redirect to="/dashboard" /> : <SignUp /> : ''}
