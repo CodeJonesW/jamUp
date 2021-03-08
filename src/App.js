@@ -22,8 +22,8 @@ function App() {
               <Route path="/about">
                 <About /> 
               </Route>
-              <Route path="/welcome">
-                <Landing /> 
+              <Route path="/signin">
+                {auth.user !== null ? auth.user ? <Redirect to="/dashboard" /> : <SignIn /> : ''}
               </Route>
               <Route path="/signup">
                 {auth.user !== null ? auth.user ? <Redirect to="/dashboard" /> : <SignUp /> : ''}
@@ -35,7 +35,7 @@ function App() {
                 {auth.user !== null ? auth.user ? <Profile />  : <Redirect to="/" /> : ''} 
               </Route>
               <Route exact path="/">
-                {auth.user !== null ? auth.user ? <Redirect to="/dashboard" /> : <SignIn /> : ''}
+                 <Landing />
               </Route>
           </Switch>
           

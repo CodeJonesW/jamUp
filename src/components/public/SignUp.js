@@ -61,7 +61,7 @@ export default function SignUp() {
         <input type="password" className={classes.input}ref={signUpPasswordInput} placeholder="Password"/>
         <input type="password" className={classes.input}ref={signUpConfirmPasswordInput} placeholder="Confirm Password"/>
         <button className={classes.input} onClick={(e) => handleSubmit(e)}>submit</button>
-        <Link className={classes.input} to="/"><button className={classes.button}> Already have an account?</button></Link>
+        <Link className={classes.input} to="/signin"><button className={classes.button}> Already have an account?</button></Link>
     </div>
   );
 }

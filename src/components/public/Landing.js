@@ -135,7 +135,7 @@ export default function Landing(props) {
                 <a  href="#"><img alt="jamUp logo" className={classes.logo} src={banjo}></img></a>
                 <ul className={classes.headerUl}>
                     <li className={classes.headerUlLi} ><Link to="/about" className={classes.headerUlLiA}>About</Link></li>
-                    <li className={classes.headerUlLi}><Link to="/" className={classes.headerUlLiA}>SignIn</Link></li>
+                    <li className={classes.headerUlLi}><Link to="/signin" className={classes.headerUlLiA}>SignIn</Link></li>
                     <li className={classes.headerUlLi}><Link to="/signup" className={classes.headerUlLiA}>SignUp</Link></li>
                 </ul>
             </header>
@@ -144,7 +144,7 @@ export default function Landing(props) {
                 <div className={classes.textBox}>
                     <h2 className={classes.textBoxH2}>Find Jams <br></br> <span className={classes.textBoxH2Span}>Play Online</span> </h2>
                     <p>Join an ongoing jam of your favorite genre or create your own!</p>    
-                        <Link to="/" className={classes.textBoxA} href="#"> Start Jamming</Link>
+                        <Link to="/signin" className={classes.textBoxA} href="#"> Start Jamming</Link>
                 </div>
                 
                 <div className={classes.imgBox}>
@@ -154,9 +154,9 @@ export default function Landing(props) {
             </div>
 
             <ul className={classes.sci}>
-                <li className={classes.sciLi}><a href="#" className={classes.sciLiA}><img alt="link to jamulus application website" className={classes.sciImage} src={discord}></img></a></li>
-                <li className={classes.sciLi}><a href="#" className={classes.sciLiA}><img alt="link to jamUp discord server" className={classes.sciImage} src={jamulus}></img></a></li>
-                <li className={classes.sciLi}><a href="#" className={classes.sciLiA}><img alt="link to jamUp facebook" className={classes.sciImage} src={facebook}></img></a></li>
+                <li className={classes.sciLi}><a target="_blank" href="https://jamulus.io/" className={classes.sciLiA}><img alt="link to jamulus application website" className={classes.sciImage} src={jamulus}></img></a></li>
+                <li className={classes.sciLi}><a target="_blank" href="https://discord.gg/xhPZPNYzSJ" className={classes.sciLiA}><img alt="link to jamUp discord server" className={classes.sciImage} src={discord} ></img></a></li>
+                <li className={classes.sciLi}><a target="_blank" href="https://www.facebook.com/" className={classes.sciLiA}><img alt="link to jamUp facebook" className={classes.sciImage} src={facebook}></img></a></li>
             </ul>
         </section>  
 
