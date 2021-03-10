@@ -3,47 +3,83 @@ import { useAuth } from "../../Hooks/use-auth";
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-
+import avatar from '../../assets/img/avatar.webp'
 
 
 const useStyles = makeStyles((theme) => ({
-  input: {
-    width: "50%",
-    marginTop: '5%',
-    borderRadius: "1px"
+  body: {
+    width: "100%",
+    minHeight: '100vh',
   },
-  link: {
-    width: "24%",
-    marginTop: '5%',
-    margin: "1%",
-    borderRadius: "1px"
+  loginBox: {
+   width: "320px",
+   minHeight: "420px",
+   background: "#fff",
+   color: "#000",
+   top: "50%",
+   left: "50%",
+   position: "absolute",
+   transform: "translate(-50%, -50%)",
+   boxSizing: "border-box",
+   padding: "70px 30px",
+   borderRadius: "20px"
+  },
+  avatar: {
+    width: "100px",
+    height: "100px",
+    borderRadius: "40%",
+    position: "absolute",
+    top: "-50px",
+    left: "calc(50% - 50px)",
   },
   h1: {
-    width: "50%",
-    marginTop: '5%',
-    textAlign: 'center'
+      margin: "0",
+      padding: "0 0 20px",
+      textAlign: "center",
+      fontSize: "22px",
+      fontStyle: "bold"
+  },
+  loginBoxP: {
+      margin: "0",
+      padding: "0",
+      fontWeight: "bold",
+  },
+  loginBoxInputText: {
+      width: "100%",
+      marginBottom: "20px",
+      border: "none",
+      borderBottom: "1px solid #000",
+      background: "transparent",
+      outline: "none",
+      height: "35px",
+      color: "#000",
+      fontSize: "16px"
+  },
+  loginBoxInputSubmit: {
+    width: "100%",
+    marginBottom: "20px",
+    margin: "0",
+    padding: "0",
+    border: "none",
+    outline: "none",
+    height: "40px",
+    background: "#0e0c1d",
+    color: "#fff",
+    fontSize: "18px",
+    borderRadius: "20px",
+    fontStyle: "none",
+    "&:hover": {
+        cursor: 'pointer',
+        background: "#343078"
+      }
+    },
+    loginBoxA: {
+        textDecoration: "none",
+        fontSize: "14px",
+        lineHeight: "20px",
+        color: "#0D0C1D"
+    }
 
-  },
-  button: {
-    width: "100%",
-    borderRadius: "1px"
-
-  },
-  outerDiv: {
-    marginTop: '10%',
-    width: "100%",
-    alignContent: 'center',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    alignItems: 'center',
-    display: 'flex',
-  },
-  linkDiv: {
-    display:"flex",
-    flexDirection: "row",
-    width: "100%",
-    justifyContent: 'center',
-  }
 }));
 
 
@@ -58,25 +94,23 @@ export default function SignIn(props) {
   }
   return (
     <div className={classes.body}>
-        <div className={classes.outerDiv} >
-          <h1 className={classes.h1} >JamUp</h1>
+       <div className={classes.loginBox}>
+           <img className={classes.avatar} src={avatar}></img>
+           <h1 className={classes.h1}>Login Here</h1>
+           <p className={classes.loginBoxP}>Email</p>
+           <input className={classes.loginBoxInputText} type="text" ref={signInEmailInput} name="" placeholder="Enter Email"></input>
+           <p className={classes.loginBoxP}>Password</p>
+           <input className={classes.loginBoxInputText} type="password" name="" ref={signInPasswordInput} placeholder="Enter Password"></input>
+           
+           <Button className={classes.loginBoxInputSubmit} onClick={handleSubmit} type="submit" name="" >Login</Button><br></br>
+           <Link  className={classes.loginBoxA} to="/signup"><p variant="contained" className={classes.loginBoxA}> Dont have an account?</p></Link>
+           <Link  className={classes.loginBoxA} to="/about"><p variant="contained" className={classes.loginBoxA}> Lost password?</p></Link>
 
-          <input className={classes.input} ref={signInEmailInput} placeholder="Email" />
-          <input className={classes.input} type="password" ref={signInPasswordInput} placeholder="password" />
-          <Button variant="contained" className={classes.input} onClick={handleSubmit} >Submit </Button>
-          <div className={classes.linkDiv}>
-          <Link  className={classes.link} to="/signup"><Button variant="contained" className={classes.button}> Sign Up</Button></Link>
-          <Link  className={classes.link} to="/about"><Button variant="contained" className={classes.button}> About</Button></Link>
-
-          </div>
-
-
-        </div>
+       </div>
     </div>
     
   )
 
 }
-
 
 

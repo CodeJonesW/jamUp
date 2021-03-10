@@ -23,7 +23,7 @@ function App() {
                 <About /> 
               </Route>
               <Route path="/signin">
-                {auth.user !== null ? auth.user ? <Redirect to="/dashboard" /> : <SignIn /> : ''}
+              {auth.user !== null ? auth.user ? <Redirect to="/dashboard" /> : <SignIn /> : ''} 
               </Route>
               <Route path="/signup">
                 {auth.user !== null ? auth.user ? <Redirect to="/dashboard" /> : <SignUp /> : ''}
