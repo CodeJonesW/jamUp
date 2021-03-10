@@ -1,38 +1,89 @@
 import React, { useRef } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import { useAuth } from "../../Hooks/use-auth";
 import { Link } from 'react-router-dom';
-import jamCalls from '../../utils/jamAPI'
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import avatar from '../../assets/img/avatar.webp'
+import jamCalls from "../../utils/jamAPI"
 
 const useStyles = makeStyles((theme) => ({
-  input: {
-    width: "50%",
-    marginTop: '5%'
-
+  body: {
+    width: "100%",
+    minHeight: '100vh',
+  },
+  loginBox: {
+   width: "320px",
+   minHeight: "420px",
+   background: "#fff",
+   color: "#000",
+   top: "50%",
+   left: "50%",
+   position: "absolute",
+   transform: "translate(-50%, -50%)",
+   boxSizing: "border-box",
+   padding: "70px 30px",
+   borderRadius: "20px"
+  },
+  avatar: {
+    width: "100px",
+    height: "100px",
+    borderRadius: "40%",
+    position: "absolute",
+    top: "-50px",
+    left: "calc(50% - 50px)",
   },
   h1: {
-    width: "50%",
-    marginTop: '5%',
-    textAlign: 'center'
-
+      margin: "0",
+      padding: "0 0 20px",
+      textAlign: "center",
+      fontSize: "22px",
+      fontStyle: "bold"
   },
-  button: {
+  loginBoxP: {
+      margin: "0",
+      padding: "0",
+      fontWeight: "bold",
+  },
+  loginBoxInputText: {
+      width: "100%",
+      marginBottom: "20px",
+      border: "none",
+      borderBottom: "1px solid #000",
+      background: "transparent",
+      outline: "none",
+      height: "35px",
+      color: "#000",
+      fontSize: "16px"
+  },
+  loginBoxInputSubmit: {
     width: "100%",
-    marginTop: '5%'
+    marginBottom: "20px",
+    margin: "0",
+    padding: "0",
+    border: "none",
+    outline: "none",
+    height: "40px",
+    background: "#0e0c1d",
+    color: "#fff",
+    fontSize: "18px",
+    borderRadius: "20px",
+    fontStyle: "none",
+    "&:hover": {
+        cursor: 'pointer',
+        background: "#343078"
+      }
+    },
+    loginBoxA: {
+        textDecoration: "none",
+        fontSize: "14px",
+        lineHeight: "20px",
+        color: "#0D0C1D"
+    }
 
-  },
-  outerDiv: {
-    marginTop: '10%',
-    width: "100%",
-    alignItems: 'center',
-    alignContent: 'center',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    display: 'flex'
-  },
 }));
 
-export default function SignUp() {
+
+export default function SignUp(props) {
   const classes = useStyles();
   const auth = useAuth();
   const signUpEmailInput = useRef(null);
@@ -54,14 +105,26 @@ export default function SignUp() {
   }
 
   return (
-    <div className={classes.outerDiv}>
-    <h1 className={classes.h1}>Sign up with email and password</h1>
-  
-        <input className={classes.input} ref={signUpEmailInput} placeholder="Email"/>
-        <input type="password" className={classes.input}ref={signUpPasswordInput} placeholder="Password"/>
-        <input type="password" className={classes.input}ref={signUpConfirmPasswordInput} placeholder="Confirm Password"/>
-        <button className={classes.input} onClick={(e) => handleSubmit(e)}>submit</button>
-        <Link className={classes.input} to="/signin"><button className={classes.button}> Already have an account?</button></Link>
+    <div className={classes.body}>
+       <div className={classes.loginBox}>
+           <img className={classes.avatar} src={avatar}></img>
+           <h1 className={classes.h1}>Sign Up Here</h1>
+           <p className={classes.loginBoxP}>Email</p>
+           <input className={classes.loginBoxInputText} type="text" ref={signUpEmailInput} name="" placeholder="Enter Email"></input>
+           <p className={classes.loginBoxP}>Password</p>
+           <input className={classes.loginBoxInputText} type="password" name="" ref={signUpPasswordInput} placeholder="Enter Password"></input>
+           <p className={classes.loginBoxP}>Confirm Password</p>
+           <input className={classes.loginBoxInputText} type="password" name="" ref={signUpConfirmPasswordInput} placeholder="Enter Password"></input>
+
+           <Button className={classes.loginBoxInputSubmit} onClick={handleSubmit} type="submit" name="" >Login</Button><br></br>
+           <Link  className={classes.loginBoxA} to="/signin"><p variant="contained" className={classes.loginBoxA}> Already have an account?</p></Link>
+           <Link  className={classes.loginBoxA} to="/about"><p variant="contained" className={classes.loginBoxA}> FAQ</p></Link>
+
+       </div>
     </div>
-  );
+    
+  )
+
 }
+
+
