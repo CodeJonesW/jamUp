@@ -158,7 +158,7 @@ export default function Landing(props) {
             <ul className={classes.sci}>
                 <li className={classes.sciLi}><a target="_blank" href="https://jamulus.io/" className={classes.sciLiA}><img alt="link to jamulus application website" className={classes.sciImage} src={jamulus}></img></a></li>
                 <li className={classes.sciLi}><a target="_blank" href="https://discord.gg/xhPZPNYzSJ" className={classes.sciLiA}><img alt="link to jamUp discord server" className={classes.sciImage} src={discord} ></img></a></li>
-                <li className={classes.sciLi}><a target="#" className={classes.sciLiA}><img alt="link to jamUp facebook" className={classes.sciImage} src={facebook}></img></a></li>
+                <li className={classes.sciLi}><a target="_blank" href="https://facebook.com" className={classes.sciLiA}><img alt="link to jamUp facebook" className={classes.sciImage} src={facebook}></img></a></li>
             </ul>
         </section>  
 
