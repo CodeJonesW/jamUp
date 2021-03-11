@@ -97,6 +97,12 @@ const useStyles = makeStyles((theme) => ({
     filter: "invert(1)",
     margin: "10%",
     userDrag: "none",
+    [theme.breakpoints.down('sm')]: {
+      maxWidth: '130px',
+    },
+    [theme.breakpoints.up('md')]: {
+      maxWidth: "inline"
+    },
   },
   sci: {
     position: "absolute",
