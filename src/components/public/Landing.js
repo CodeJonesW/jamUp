@@ -90,13 +90,13 @@ const useStyles = makeStyles((theme) => ({
     width: "600px",
     display: "flex",
     paddingRight: "50px",
-    justifyContent: "flex-end"
+    justifyContent: "flex-end",
   },
-  appExample: {
+  bandImage: {
     maxWidth: "260px",
     filter: "invert(1)",
     margin: "10%",
-    userDrag: "none"
+    userDrag: "none",
   },
   sci: {
     position: "absolute",
@@ -155,7 +155,7 @@ export default function Landing(props) {
                   </div>
                   
                   <div className={classes.imgBox}>
-                          <img alt="image of jamUp interface" className={classes.appExample} src={bluegrass}></img>
+                          <img alt="image of bluegrass band guitar violin cello bass banjo" className={classes.bandImage} src={bluegrass}></img>
                   </div>
                   
               </div>
