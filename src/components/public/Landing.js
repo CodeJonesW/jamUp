@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import banjo from "../../assets/img/banjo.png"
-import appExample from "../../assets/img/appExample.png"
 import jamulus from "../../assets/img/jamulus.png"
 import discord from "../../assets/img/discord.png"
 import bluegrass from "../../assets/img/bluegrass_band.png"
@@ -23,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    transition: "0.5s"
+    transition: "0.5s",
   },
   header: {
       position: "absolute",
@@ -108,7 +106,15 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    flexDirection: "column"
+    flexDirection: "column",
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'row',
+      top: "90%"
+    },
+    [theme.breakpoints.up('md')]: {
+      flexDirection: 'column',
+      top: "50%",
+    },
   },
   sciLi: {
       listStyle: "none"
@@ -121,9 +127,7 @@ const useStyles = makeStyles((theme) => ({
   sciImage: {
       maxWidth: "100px",
       userDrag: "none"
-    
-  }
-
+  },
 }));
 
 
@@ -142,24 +146,26 @@ export default function Landing(props) {
                 </ul>
             </header>
 
-            <div className={classes.content}>
-                <div className={classes.textBox}>
-                    <h2 className={classes.textBoxH2}>Find Jams <br></br> <span className={classes.textBoxH2Span}>Play Online</span> </h2>
-                    <p>Join an ongoing jam of your favorite genre or create your own!</p>    
-                        <Link to="/signin" className={classes.textBoxA} href="#"> Start Jamming</Link>
-                </div>
-                
-                <div className={classes.imgBox}>
-                        <img alt="image of jamUp interface" className={classes.appExample} src={bluegrass}></img>
-                </div>
-                
-            </div>
-
-            <ul className={classes.sci}>
-                <li className={classes.sciLi}><a target="_blank" href="https://jamulus.io/" className={classes.sciLiA}><img alt="link to jamulus application website" className={classes.sciImage} src={jamulus}></img></a></li>
-                <li className={classes.sciLi}><a target="_blank" href="https://discord.gg/xhPZPNYzSJ" className={classes.sciLiA}><img alt="link to jamUp discord server" className={classes.sciImage} src={discord} ></img></a></li>
-                <li className={classes.sciLi}><a target="_blank" href="https://facebook.com" className={classes.sciLiA}><img alt="link to jamUp facebook" className={classes.sciImage} src={facebook}></img></a></li>
-            </ul>
+            
+              <div className={classes.content}>
+                  <div className={classes.textBox}>
+                      <h2 className={classes.textBoxH2}>Find Jams <br></br> <span className={classes.textBoxH2Span}>Play Online</span> </h2>
+                      <p>Join an ongoing jam of your favorite genre or create your own!</p>    
+                          <Link to="/signin" className={classes.textBoxA} href="#"> Start Jamming</Link>
+                  </div>
+                  
+                  <div className={classes.imgBox}>
+                          <img alt="image of jamUp interface" className={classes.appExample} src={bluegrass}></img>
+                  </div>
+                  
+              </div>
+  
+              <ul className={classes.sci}>
+                  <li className={classes.sciLi}><a target="_blank" href="https://jamulus.io/" className={classes.sciLiA}><img alt="link to jamulus application website" className={classes.sciImage} src={jamulus}></img></a></li>
+                  <li className={classes.sciLi}><a target="_blank" href="https://discord.gg/xhPZPNYzSJ" className={classes.sciLiA}><img alt="link to jamUp discord server" className={classes.sciImage} src={discord} ></img></a></li>
+                  <li className={classes.sciLi}><a target="_blank" href="https://facebook.com" className={classes.sciLiA}><img alt="link to jamUp facebook" className={classes.sciImage} src={facebook}></img></a></li>
+              </ul>
+            
         </section>  
 
     </div>
