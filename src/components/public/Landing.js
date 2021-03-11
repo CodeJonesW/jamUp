@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
   body: {
     width: "100%",
     height: '100%',
+
   },
   section: {
     position: "relative",
@@ -22,6 +23,12 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     transition: "0.5s",
+    [theme.breakpoints.down('sm')]: {
+      padding: '75px',
+    },
+    [theme.breakpoints.up('md')]: {
+      padding: "100px",
+    },
   },
   header: {
       position: "absolute",
@@ -98,10 +105,10 @@ const useStyles = makeStyles((theme) => ({
     margin: "10%",
     userDrag: "none",
     [theme.breakpoints.down('sm')]: {
-      maxWidth: '130px',
+      maxWidth: '160px',
     },
     [theme.breakpoints.up('md')]: {
-      maxWidth: "inline"
+      maxWidth: "260"
     },
   },
   sci: {
