@@ -48,6 +48,12 @@ const FAQData = [
       "Yes, you will need to click the ❤️ to let others know you will be attending.",
     ],
   },
+  {
+    question: "How can you help?",
+    answers: [
+      "JamUp is an ongoing project. We look forward to improving upon the initial design. If you are interested in helping us grow, join us in our Discord server",
+    ],
+  },
 ];
 
 export default FAQData;
